@@ -13,7 +13,7 @@ public class Enemy extends MoveableObject implements Drawable {
 	}
 	
 	public void shoot() {
-		Bullet bullet = new Bullet(this.getPosX()+11, this.getPosY()-30, 30, 30, -5, "Invader_3");
+		Bullet bullet = new Bullet(this.getPosX()+7, this.getPosY()+this.getHeight(), 15, 30, 4, "Laser");
 		bullets.add(bullet);
 	}
 

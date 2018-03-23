@@ -4,14 +4,18 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import state_machine.StateMachine;
 
 public class Display extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
-	private final int WIDTH = 360, HEIGHT = WIDTH/16*9, SCALE = 3;
+	private final int WIDTH = 280, HEIGHT = 200, SCALE = 3;
 	
 	private boolean running = false;
 	private Thread thread;
@@ -19,12 +23,19 @@ public class Display extends Canvas implements Runnable {
 	private int FPS;
 	private static StateMachine state;
 	
+	private BufferedImage bg;
+	
 	public Display() {
 		this.setSize(WIDTH*SCALE, HEIGHT*SCALE);
 		this.setFocusable(true);
 		
 		state = new StateMachine(this);
 		state.setState((byte) 0);
+		
+		try {
+			URL url = this.getClass().getResource("/images/Background.png");
+			bg = ImageIO.read(url);
+		} catch(IOException e) {e.printStackTrace();}
 	}
 	
 	public static void main(String args[]) {
@@ -47,6 +58,8 @@ public class Display extends Canvas implements Runnable {
 				Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 				g.setColor(Color.BLACK);
 				g.fillRect(0, 0, this.getWidth(), this.getHeight());
+				
+				g.drawImage(bg, 0, 0, WIDTH*SCALE+10, HEIGHT*SCALE+10, this);
 				
 				state.draw(g);
 				

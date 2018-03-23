@@ -12,8 +12,8 @@ public class GameScreen  implements SuperStateMachine {
 	private EnemyLine enemies;
 	
 	public GameScreen() {
-		player = new Player(360*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
-		enemies = new EnemyLine(360*3/2, -50, 1, 7);
+		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
+		enemies = new EnemyLine(280*3/2, -50, 1, 7);
 	}
 
 	@Override

@@ -28,7 +28,7 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 	
 	public void shoot() {
 		if(timer.timerEvent(cooldown)) {
-			Bullet bullet = new Bullet(this.getPosX()+11, this.getPosY()-30, 30, 30, -5, "Invader_3");
+			Bullet bullet = new Bullet(this.getPosX()+22, this.getPosY()-30, 10, 30, -4, "MissileSprite");
 			bullets.add(bullet);
 		}
 	}
