@@ -17,7 +17,7 @@ public abstract class GameObject {
 		this.height = height;
 		
 		try {
-			URL url = this.getClass().getResource("/space_battle/images/"+spriteName+".png");
+			URL url = this.getClass().getResource("/images/"+spriteName+".png");
 			sprite = ImageIO.read(url);
 		} catch(IOException e) {e.printStackTrace();}
 	}
@@ -42,16 +42,8 @@ public abstract class GameObject {
 		return width;
 	}
 
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
 	public int getHeight() {
 		return height;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
 	}
 
 	public BufferedImage getSprite() {
