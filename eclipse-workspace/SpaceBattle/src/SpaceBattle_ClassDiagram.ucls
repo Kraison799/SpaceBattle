@@ -28,8 +28,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="game_objects.EnemyLine" project="SpaceBattle" 
-    file="/SpaceBattle/src/game_objects/EnemyLine.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="game_objects.BasicLine" project="SpaceBattle" 
+    file="/SpaceBattle/src/game_objects/BasicLine.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="297" width="153" x="269" y="752"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -127,116 +127,144 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="15">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="16" name="enemies"/>      
-      <multiplicity id="17" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="18">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <realization id="19">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="5"/>  
-  </realization>  
-  <generalization id="20">    
+  <generalization id="15">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="9"/>  
   </generalization>  
-  <generalization id="21">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <generalization id="22">    
+  <generalization id="16">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
-  <generalization id="23">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <realization id="24">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <association id="25">    
+  <association id="17">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="26" name="bullets"/>      
-      <multiplicity id="27" minimum="0" maximum="1"/>    
+      <attribute id="18" name="bullets">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="19" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="28">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="29" name="bullets"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="31">    
+  <realization id="20">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <realization id="21">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="7"/>  
   </realization>  
-  <association id="32">    
+  <association id="22">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="23" name="bullets">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="24" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="25">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="26" name="timer">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="27" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="28">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="29" name="head">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="30" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="31">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="32" name="next">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="34">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="33" name="player"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
+      <attribute id="35" name="player">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="36" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="35">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="36" name="next"/>      
-      <multiplicity id="37" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="38">    
+  <realization id="37">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <generalization id="38">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <association id="40">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="39" name="state"/>      
-      <multiplicity id="40" minimum="0" maximum="1"/>    
+      <attribute id="41" name="state">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="41">    
+  <association id="43">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="42" name="enemies"/>      
-      <multiplicity id="43" minimum="0" maximum="1"/>    
+      <attribute id="44" name="enemies">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="44">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="45" name="states"/>      
-      <multiplicity id="46" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <realization id="46">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
   <association id="47">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="48" name="head"/>      
-      <multiplicity id="49" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="48" name="enemies">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="49" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="50">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="51" name="timer"/>      
-      <multiplicity id="52" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

@@ -54,7 +54,7 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 			bullets.get(r).update(delta);
 		}
 		
-		if(right && !left && this.getPosX() < 360*3-this.getWidth()+10) {
+		if(right && !left && this.getPosX() < 280*3-this.getWidth()+10) {
 			this.setPosX(this.getPosX()+this.getSpeed());
 		} else if(!right && left && this.getPosX() > 0) {
 			this.setPosX(this.getPosX()-this.getSpeed());

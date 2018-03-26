@@ -2,13 +2,13 @@ package state_machine;
 
 import java.awt.Canvas;
 import java.awt.Graphics2D;
-import java.util.ArrayList;
 
+import adt.List;
 import display.GameScreen;
 
 public class StateMachine {
 	private Canvas canvas;
-	private ArrayList<SuperStateMachine> states = new ArrayList<SuperStateMachine>();
+	private List<SuperStateMachine> states = new List<SuperStateMachine>();
 	private byte selectState;
 	
 	public StateMachine(Canvas canvas) {

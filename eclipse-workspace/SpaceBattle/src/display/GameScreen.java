@@ -3,17 +3,17 @@ package display;
 import java.awt.Canvas;
 import java.awt.Graphics2D;
 
-import game_objects.EnemyLine;
+import game_objects.BasicLine;
 import game_objects.Player;
 import state_machine.SuperStateMachine;
 
 public class GameScreen  implements SuperStateMachine {
 	private Player player;
-	private EnemyLine enemies;
+	private BasicLine enemies;
 	
 	public GameScreen() {
 		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
-		enemies = new EnemyLine(280*3/2, -50, 1, 7);
+		enemies = new BasicLine(280*3/2, -50, 2, 9);
 	}
 
 	@Override
