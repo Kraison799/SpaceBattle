@@ -41,12 +41,27 @@ public abstract class GameObject {
 	public int getWidth() {
 		return width;
 	}
+	
+	public void setWidth(int width) {
+		this.width = width;
+	}
 
 	public int getHeight() {
 		return height;
 	}
+	
+	public void setHeight(int height) {
+		this.height = height;
+	}
 
 	public BufferedImage getSprite() {
 		return sprite;
+	}
+	
+	public void setImage(String spriteName) {
+		try {
+			URL url = this.getClass().getResource("/images/"+spriteName+".png");
+			sprite = ImageIO.read(url);
+		} catch(IOException e) {e.printStackTrace();}
 	}
 }
