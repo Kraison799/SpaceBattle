@@ -19,7 +19,7 @@ public abstract class EnemyLine implements Drawable {
 		
 		int counter = 0;
 		this.enemies = new List<Enemy>();
-		while(counter < this.getSize()) {
+		while(counter < this.size) {
 			Enemy enemy = new Enemy(posX, posY, 30, 50, 2, speed, "Invader_1");
 			this.getEnemies().add(enemy);
 			counter++;
@@ -52,10 +52,6 @@ public abstract class EnemyLine implements Drawable {
 		return speed;
 	}
 
-	public int getSize() {
-		return size;
-	}
-
 	public Timer getTimer() {
 		return timer;
 	}
@@ -74,10 +70,10 @@ public abstract class EnemyLine implements Drawable {
 		}
 		if(timer.timerEvent(1000)) {
 			Random rand = new Random();;
-			 int shooter_1 = rand.nextInt(size-1);
-			 int shooter_2 = rand.nextInt(size-1);
-			 enemies.get(shooter_1).shoot();
-			 enemies.get(shooter_2).shoot();
+			int shooter_1 = rand.nextInt(size-1);
+			int shooter_2 = rand.nextInt(size-1);
+			enemies.get(shooter_1).shoot();
+			enemies.get(shooter_2).shoot();
 		}
 	}
 }

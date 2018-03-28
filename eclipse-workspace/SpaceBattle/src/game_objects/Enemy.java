@@ -7,7 +7,7 @@ import adt.List;
 public class Enemy extends MoveableObject implements Drawable {
 	private List<Bullet> bullets;
 	private int resistance;
-	private boolean boss, destroy;
+	private boolean boss;
 	private String bulletSprite;
 
 	public Enemy(int posX, int posY, int width, int height, int resistance, int speed, String spriteName) {
@@ -31,10 +31,8 @@ public class Enemy extends MoveableObject implements Drawable {
 	public void getDamage() {
 		if(resistance == 1) {
 			resistance--;
-			destroy = true;
 		}
 		resistance--;
-		destroy = false;
 	}
 	
 	public void setBoss() {
@@ -44,6 +42,10 @@ public class Enemy extends MoveableObject implements Drawable {
 		this.setImage("Boss_1");
 		this.setWidth(100);
 		this.setHeight(75);
+	}
+
+	public List<Bullet> getBullets() {
+		return bullets;
 	}
 
 	@Override

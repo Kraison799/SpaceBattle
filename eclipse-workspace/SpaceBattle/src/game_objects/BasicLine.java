@@ -9,35 +9,44 @@ public class BasicLine extends EnemyLine {
 	}
 	
 	public void arrangeLine() {
-		if(this.getSize()%2 == 1) {
-			for(int c = 0; c < this.getSize(); c++) {
-				int pos = c-(this.getSize()/2);
+		if(this.getEnemies().size()%2 == 1) {
+			for(int c = 0; c < this.getEnemies().size(); c++) {
+				int pos = c-(this.getEnemies().size()/2);
 				this.getEnemies().get(c).setPosX(this.getPosX()+75*pos);
+			}
+		} else {
+			for(int c = 0; c < this.getEnemies().size(); c++) {
+				if(c < this.getEnemies().size()/2) {
+					this.getEnemies().get(c).setPosX(this.getPosX() - 45 - (this.getEnemies().size()/2 - 1 - c)*60);
+				} else {
+					this.getEnemies().get(c).setPosX(this.getPosX() - 30 + (this.getEnemies().size()-c)*60);
+				}
 			}
 		}
 	}
 	
 	@ Override
 	public void draw(Graphics2D g) {
-		for(int c = 0; c < this.getSize(); c++) {
+		for(int c = 0; c < this.getEnemies().size(); c++) {
 			this.getEnemies().get(c).draw(g);
 		}
 	}
 	
 	@ Override
 	public void update(double delta) {
-		for(int c = 0; c < this.getSize(); c++) {
-			this.getEnemies().get(c).setPosY(this.getEnemies().get(c).getPosY()+this.getSpeed());
+		for(int c = 0; c < this.getEnemies().size(); c++) {
+			this.getEnemies().get(c).setPosY(this.getEnemies().get(c).getPosY() + this.getSpeed());
 			this.getEnemies().get(c).update(delta);
 		}
 		this.arrangeLine();
-		if(this.getTimer().timerEvent(1000)) {
+		if(this.getTimer().timerEvent(1000) && this.getEnemies().size() > 1) {
 			Random rand = new Random();;
-			System.out.println(this.getSize());
-			int shooter_1 = rand.nextInt(this.getSize()-1);
-			int shooter_2 = rand.nextInt(this.getSize()-1);
+			int shooter_1 = rand.nextInt(this.getEnemies().size()-1);
+			int shooter_2 = rand.nextInt(this.getEnemies().size()-1);
 			this.getEnemies().get(shooter_1).shoot();
 			this.getEnemies().get(shooter_2).shoot();
+		} else if(this.getTimer().timerEvent(1000) && this.getEnemies().size() == 1) {
+			this.getEnemies().get(0).shoot();
 		}
 	}
 }

@@ -25,18 +25,26 @@ public class List <T> {
 		size++;
 	}
 	
-	public void remove(T value) {
-		if(head != null && head.getValue() == value) {
+	public void remove(int index) {
+		if(index == 0 && index < size) {
 			head = head.getNext();
 			size--;
+			return;
 		}
-		Node<T> current = new Node<T>();
-		while(current.getNext() != null && current.getNext().getValue() != value) {
+		Node<T> current = head;
+		int counter = 0;
+		while(counter < index-1 && current.getNext() != null) {
 			current = current.getNext();
+			counter++;
 		}
-		if(current.getNext().getValue() == value) {
+		if(counter == size-2) {
+			current.setNext(null);
+			size--;
+			return;
+		} else {
 			current.setNext(current.getNext().getNext());
 			size--;
+			return;
 		}
 	}
 	
@@ -44,7 +52,7 @@ public class List <T> {
 		if(index > size-1)
 			return null;
 		Node<T> current = head;
-		for(int i = 0; i != index; i++) {
+		for(int i = 0; i < index; i++) {
 			current = current.getNext();
 		}
 		return current.getValue();

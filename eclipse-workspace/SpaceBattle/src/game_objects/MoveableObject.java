@@ -10,6 +10,7 @@ public abstract class MoveableObject extends GameObject {
 	public MoveableObject(int posX, int posY, int width, int height, int speed, String spriteName) {
 		super(posX, posY, width, height, spriteName);
 		this.speed = speed;
+		this.collide = false;
 		this.rect = new Rectangle(posX, posY, width, height);
 	}
 
@@ -26,7 +27,7 @@ public abstract class MoveableObject extends GameObject {
 	}
 	
 	public boolean isColliding(MoveableObject other) {
-		collide = other.getRect().getBounds().intersects(this.getRect().getBounds());
+		collide = other.getRect().intersects(this.getRect());
 		return collide;
 	}
 }
