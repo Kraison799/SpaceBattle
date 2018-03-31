@@ -1,12 +1,9 @@
 package game_objects;
 
-import java.awt.Graphics2D;
-import java.util.Random;
-
 import adt.List;
 import state_machine.Timer;
 
-public abstract class EnemyLine implements Drawable {
+public abstract class EnemyLine {
 	private List<Enemy> enemies;
 	private int posX, posY, speed, size;
 	private Timer timer;
@@ -32,6 +29,10 @@ public abstract class EnemyLine implements Drawable {
 		return enemies;
 	}
 
+	public void setEnemies(List<Enemy> enemies) {
+		this.enemies = enemies;
+	}
+
 	public int getPosX() {
 		return posX;
 	}
@@ -55,25 +56,18 @@ public abstract class EnemyLine implements Drawable {
 	public Timer getTimer() {
 		return timer;
 	}
-
-	@ Override
-	public void draw(Graphics2D g) {
-		for(int c = 0; c < size; c++) {
-			enemies.get(c).draw(g);
-		}
-	}
 	
-	@ Override
-	public void update(double delta) {
-		for(int c = 0; c < size; c++) {
-			enemies.get(c).update(delta);
+	public void arrangeLine() {
+		int dist = 0;
+		for(int c = 0; c < this.getEnemies().size(); c++) {
+			this.getEnemies().get(c).setPosX(dist);
+			dist += 35 + this.getEnemies().get(c).getWidth();
+			System.out.println("Enemy width: "+this.getEnemies().get(c).getWidth());
+			System.out.println("Dist: "+dist);
 		}
-		if(timer.timerEvent(1000)) {
-			Random rand = new Random();;
-			int shooter_1 = rand.nextInt(size-1);
-			int shooter_2 = rand.nextInt(size-1);
-			enemies.get(shooter_1).shoot();
-			enemies.get(shooter_2).shoot();
+		dist = (840 - this.getEnemies().get(this.getEnemies().size()-1).getPosX() - this.getEnemies().get(this.getEnemies().size()-1).getWidth())/2;
+		for(int c = 0; c < this.getEnemies().size(); c++) {
+			this.getEnemies().get(c).setPosX(dist + this.getEnemies().get(c).getPosX());
 		}
 	}
 }

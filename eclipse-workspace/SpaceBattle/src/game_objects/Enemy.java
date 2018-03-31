@@ -28,11 +28,9 @@ public class Enemy extends MoveableObject implements Drawable {
 		}
 	}
 	
-	public void getDamage() {
-		if(resistance == 1) {
-			resistance--;
-		}
-		resistance--;
+	public boolean destroy() {
+		--resistance;
+		return (resistance == 0);
 	}
 	
 	public void setBoss() {
@@ -46,6 +44,10 @@ public class Enemy extends MoveableObject implements Drawable {
 
 	public List<Bullet> getBullets() {
 		return bullets;
+	}
+
+	public boolean isBoss() {
+		return boss;
 	}
 
 	@Override

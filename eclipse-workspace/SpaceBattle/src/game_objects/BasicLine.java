@@ -3,26 +3,9 @@ package game_objects;
 import java.awt.Graphics2D;
 import java.util.Random;
 
-public class BasicLine extends EnemyLine {
+public class BasicLine extends EnemyLine implements Drawable {
 	public BasicLine(int posX, int posY, int speed, int size) {
 		super(posX, posY, speed, size);
-	}
-	
-	public void arrangeLine() {
-		if(this.getEnemies().size()%2 == 1) {
-			for(int c = 0; c < this.getEnemies().size(); c++) {
-				int pos = c-(this.getEnemies().size()/2);
-				this.getEnemies().get(c).setPosX(this.getPosX()+75*pos);
-			}
-		} else {
-			for(int c = 0; c < this.getEnemies().size(); c++) {
-				if(c < this.getEnemies().size()/2) {
-					this.getEnemies().get(c).setPosX(this.getPosX() - 45 - (this.getEnemies().size()/2 - 1 - c)*60);
-				} else {
-					this.getEnemies().get(c).setPosX(this.getPosX() - 30 + (this.getEnemies().size()-c)*60);
-				}
-			}
-		}
 	}
 	
 	@ Override

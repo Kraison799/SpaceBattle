@@ -4,16 +4,18 @@ import java.awt.Canvas;
 import java.awt.Graphics2D;
 
 import game_objects.BasicLine;
+import game_objects.LineClassA;
+import game_objects.LineClassB;
 import game_objects.Player;
 import state_machine.SuperStateMachine;
 
 public class GameScreen  implements SuperStateMachine {
 	private Player player;
-	private BasicLine enemies;
+	private LineClassB enemies;
 	
 	public GameScreen() {
 		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
-		enemies = new BasicLine(280*3/2, -50, 1, 4);
+		enemies = new LineClassB (280*3/2, -50, 1, 7);
 	}
 
 	@Override
@@ -24,14 +26,46 @@ public class GameScreen  implements SuperStateMachine {
 
 	@Override
 	public void update(double delta) {
-		for(int b = 0; b < player.getBullets().size(); b++) {
-			for(int e = 0; e < enemies.getEnemies().size(); e++) {
+		// Loop to destroy enemies
+		for(int e =0; e < enemies.getEnemies().size(); e++) {
+			int b = 0;
+			while(b < player.getBullets().size()) {
 				if(player.getBullets().get(b).isColliding(enemies.getEnemies().get(e))) {
-					enemies.getEnemies().remove(e);
 					player.getBullets().remove(b);
+					if(enemies.getEnemies().get(e).destroy()) {
+						enemies.getEnemies().remove(e);
+					}
+				} else {
+				b++;
 				}
 			}
 		}
+		// Loop to destroy the player
+		for(int e = 0; e < enemies.getEnemies().size(); e++) {
+			for(int eb = 0; eb < enemies.getEnemies().get(e).getBullets().size(); eb++) {
+				if(enemies.getEnemies().get(e).getBullets().get(eb).isColliding(player) && eb < enemies.getEnemies().get(e).getBullets().size()) {
+					System.out.println("You dead!!");
+					enemies.getEnemies().get(e).getBullets().remove(eb);
+				}
+			}
+		}
+		// Loop to destroy the player's bullets out of the screen
+		for(int pb = 0; pb < player.getBullets().size(); pb++) {
+			if(player.getBullets().get(pb).getPosY() < -50) {
+				player.getBullets().remove(pb);
+				--pb;
+			}
+		}
+		// Loop to destroy the enemy's bullets for each enemy
+		for(int e = 0; e < enemies.getEnemies().size(); e++) {
+			for(int eb = 0; eb < enemies.getEnemies().get(e).getBullets().size(); eb++) {
+				if(enemies.getEnemies().get(e).getBullets().get(eb).getPosY() > 600) {
+					enemies.getEnemies().get(e).getBullets().remove(eb);
+					--eb;
+				}
+			}
+		}
+		// Update for the objects in the screen
 		player.update(delta);
 		enemies.update(delta);
 	}
