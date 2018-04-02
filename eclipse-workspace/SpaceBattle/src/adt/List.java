@@ -1,7 +1,5 @@
 package adt;
 
-import java.util.Random;
-
 public class List <T> {
 	private Node<T> head;
 	private int size;

@@ -36,7 +36,7 @@ public class Enemy extends MoveableObject implements Drawable {
 	public void setBoss() {
 		this.boss = true;
 		this.bulletSprite = "MegaLaser";
-		this.resistance *= 3;
+		this.resistance = 5;
 		this.setImage("Boss_1");
 		this.setWidth(100);
 		this.setHeight(75);

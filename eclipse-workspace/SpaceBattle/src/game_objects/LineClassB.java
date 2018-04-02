@@ -8,7 +8,6 @@ import adt.List;
 public class LineClassB extends EnemyLine implements Drawable {
 	private boolean change;
 	private int bossIndex;
-	
 	public LineClassB(int posX, int posY, int speed, int size) {
 		super(posX, posY, speed, size);
 		this.change = false;
@@ -32,6 +31,7 @@ public class LineClassB extends EnemyLine implements Drawable {
 			this.getEnemies().get(c).update(delta);
 		}
 		if(this.getTimer().timerEvent(1000)) {
+			// If the line has two or more enemies, two of them are chosen to shoot. If there is only one enemy, that enemy will shoot.
 			if(this.getEnemies().size() > 1) {
 				Random rand = new Random();
 				int shooter_1 = rand.nextInt(this.getEnemies().size()-1);
@@ -43,20 +43,23 @@ public class LineClassB extends EnemyLine implements Drawable {
 				int shooter_1 = rand.nextInt(this.getEnemies().size()-1);
 				this.getEnemies().get(shooter_1).shoot();
 			}
+			// AQUI ESTA EL ERROR
 			if(change) {
 				Random rand = new Random();
 				int newPos = rand.nextInt(this.getEnemies().size()-1);
+				System.out.println(newPos);
 				List<Enemy> newList = new List<Enemy>();
-				newList.add(this.getEnemies().get(bossIndex));
 				for(int c = 0; c < this.getEnemies().size(); c++) {
 					if(!this.getEnemies().get(c).isBoss() && c != newPos) {
 						newList.add(this.getEnemies().get(c));
 					} else if(!this.getEnemies().get(c).isBoss() && c == newPos) {
 						newList.add(this.getEnemies().get(bossIndex));
+						bossIndex = c;
 						newList.add(this.getEnemies().get(c));
 					} else if(this.getEnemies().get(c).isBoss() && c == newPos) {
+						// The boss has the same position
 						newList = this.getEnemies();
-						return;
+						break;
 					}
 				}
 				this.setEnemies(newList);
@@ -64,7 +67,7 @@ public class LineClassB extends EnemyLine implements Drawable {
 			} else {
 				change = true;
 			}
+			// HASTA AQUI PUEDE ESTAR EL PROBLEMA
 		}
-		this.arrangeLine();
 	}
 }

@@ -7,12 +7,14 @@ public abstract class EnemyLine {
 	private List<Enemy> enemies;
 	private int posX, posY, speed, size;
 	private Timer timer;
+	private String lineClass;
 	
 	public EnemyLine(int posX, int posY, int speed, int size) {
 		this.posX = posX;
 		this.posY = posY;
 		this.speed = speed;
 		this.size = size;
+		this.lineClass = "EnemyLine";
 		
 		int counter = 0;
 		this.enemies = new List<Enemy>();
@@ -57,13 +59,19 @@ public abstract class EnemyLine {
 		return timer;
 	}
 	
+	public String getLineClass() {
+		return lineClass;
+	}
+
+	public void setLineClass(String lineClass) {
+		this.lineClass = lineClass;
+	}
+
 	public void arrangeLine() {
 		int dist = 0;
 		for(int c = 0; c < this.getEnemies().size(); c++) {
 			this.getEnemies().get(c).setPosX(dist);
 			dist += 35 + this.getEnemies().get(c).getWidth();
-			System.out.println("Enemy width: "+this.getEnemies().get(c).getWidth());
-			System.out.println("Dist: "+dist);
 		}
 		dist = (840 - this.getEnemies().get(this.getEnemies().size()-1).getPosX() - this.getEnemies().get(this.getEnemies().size()-1).getWidth())/2;
 		for(int c = 0; c < this.getEnemies().size(); c++) {
