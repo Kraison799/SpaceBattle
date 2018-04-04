@@ -15,6 +15,7 @@ public class LineClassB extends EnemyLine implements Drawable {
 		int randBoss = rand.nextInt(this.getEnemies().size()-1);
 		this.getEnemies().get(randBoss).setBoss();
 		this.bossIndex = randBoss;
+		this.setLineClass("LineClassB");
 	}
 	
 	@ Override
@@ -47,21 +48,29 @@ public class LineClassB extends EnemyLine implements Drawable {
 			if(change) {
 				Random rand = new Random();
 				int newPos = rand.nextInt(this.getEnemies().size()-1);
-				List<Enemy> newList = new List<Enemy>();
-				for(int c = 0; c < this.getEnemies().size(); c++) {
-					if(!this.getEnemies().get(c).isBoss() && c != newPos) {
-						newList.add(this.getEnemies().get(c));
-					} else if(!this.getEnemies().get(c).isBoss() && c == newPos) {
-						newList.add(this.getEnemies().get(bossIndex));
-						bossIndex = newPos;
-						newList.add(this.getEnemies().get(c));
-					} else if(this.getEnemies().get(c).isBoss() && c == newPos) {
-						// The boss has the same position
-						newList = this.getEnemies();
-						break;
-					}
-				}
-				this.setEnemies(newList);
+//				System.out.println(this.getEnemies().size());
+//				System.out.println(newPos);
+//				System.out.println(bossIndex);
+//				while(newPos < 0 && newPos >= this.getEnemies().size()) {
+//					newPos = rand.nextInt(this.getEnemies().size()-1);
+//				}
+//				List<Enemy> newList = new List<Enemy>();
+//				for(int c = 0; c < this.getEnemies().size(); c++) {
+//					if(!this.getEnemies().get(c).isBoss() && c != newPos) {
+//						newList.add(this.getEnemies().get(c));
+//					} else if(!this.getEnemies().get(c).isBoss() && c == newPos) {
+//						newList.add(this.getEnemies().get(bossIndex));
+//						bossIndex = newPos;
+//						newList.add(this.getEnemies().get(c));
+//					} else if(this.getEnemies().get(c).isBoss() && c == newPos) {
+//						// The boss has the same position
+//						newList = this.getEnemies();
+//						break;
+//					} else if(this.getEnemies().get(c).isBoss() && c != newPos) {}
+//				}
+//				this.setEnemies(newList);
+				this.getEnemies().swap(bossIndex, newPos);
+				bossIndex = newPos;
 				change = false;
 			} else {
 				change = true;

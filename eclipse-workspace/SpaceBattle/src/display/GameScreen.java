@@ -8,24 +8,23 @@ import game_objects.EnemyLine;
 import game_objects.LineClassA;
 import game_objects.LineClassB;
 import game_objects.LineClassC;
-import game_objects.LineClassD;
+import game_objects.LineClassE;
 import game_objects.Player;
 import state_machine.SuperStateMachine;
 
 public class GameScreen  implements SuperStateMachine {
 	private Player player;
-	private LineClassD enemies;
+	private LineClassB enemies;
 	
 	public GameScreen() {
 		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
-		enemies = new LineClassD(280*3/2, -60, 1, 7);
+		enemies = new LineClassB(280*3/2, -60, 1, 7);
 	}
 
 	@Override
 	public void draw(Graphics2D g) {
 		player.draw(g);
 		enemies.draw(g);
-		System.out.println(enemies.getLineClass() == "LineClassA");
 	}
 
 	@Override
@@ -53,7 +52,7 @@ public class GameScreen  implements SuperStateMachine {
 		for(int e = 0; e < enemies.getEnemies().size(); e++) {
 			for(int eb = 0; eb < enemies.getEnemies().get(e).getBullets().size(); eb++) {
 				if(enemies.getEnemies().get(e).getBullets().get(eb).isColliding(player) && eb < enemies.getEnemies().get(e).getBullets().size()) {
-					System.out.println("You dead!!");
+					player.loseLife();
 					enemies.getEnemies().get(e).getBullets().remove(eb);
 				}
 			}
@@ -72,6 +71,13 @@ public class GameScreen  implements SuperStateMachine {
 					enemies.getEnemies().get(e).getBullets().remove(eb);
 					--eb;
 				}
+			}
+		}
+		// Loop to get collisions between enemies and the player
+		for(int e = 0; e < enemies.getEnemies().size(); e++) {
+			if(enemies.getEnemies().get(e).isColliding(player)) {
+				enemies.getEnemies().remove(e);
+				player.loseLife();
 			}
 		}
 		// Update for the objects in the screen

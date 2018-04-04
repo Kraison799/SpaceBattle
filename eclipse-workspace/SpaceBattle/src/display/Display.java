@@ -116,7 +116,7 @@ public class Display extends Canvas implements Runnable {
 				FPS = frames;
 				frames = 0;
 				
-				System.out.println(FPS+" FPS");
+				// System.out.println(FPS+" FPS");
 			}
 			
 			draw(bs);

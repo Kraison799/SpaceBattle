@@ -20,10 +20,10 @@ public class Enemy extends MoveableObject implements Drawable {
 	
 	public void shoot() {
 		if(!boss) {
-			Bullet bullet = new Bullet(this.getPosX()+7, this.getPosY()+this.getHeight(), 15, 30, 2, bulletSprite);
+			Bullet bullet = new Bullet(this.getPosX()+7, this.getPosY()+this.getHeight(), 15, 30, 4, bulletSprite);
 			bullets.add(bullet);
 		} else if(boss) {
-			Bullet bullet = new Bullet(this.getPosX()+36, this.getPosY()+this.getHeight(), 30, 50, 2, bulletSprite);
+			Bullet bullet = new Bullet(this.getPosX()+36, this.getPosY()+this.getHeight(), 30, 50, 3, bulletSprite);
 			bullets.add(bullet);
 		}
 	}
@@ -44,6 +44,10 @@ public class Enemy extends MoveableObject implements Drawable {
 
 	public List<Bullet> getBullets() {
 		return bullets;
+	}
+
+	public int getResistance() {
+		return resistance;
 	}
 
 	public boolean isBoss() {

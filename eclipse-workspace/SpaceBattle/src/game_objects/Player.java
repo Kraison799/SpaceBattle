@@ -9,7 +9,7 @@ import state_machine.Timer;
 
 public class Player extends MoveableObject implements KeyListener, Drawable {
 	private boolean right, left, shoot;
-	private int cooldown;
+	private int cooldown, lifes;
 	private Timer timer;
 	
 	private List<Bullet> bullets = new List<Bullet>();
@@ -20,6 +20,7 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 		this.left = false;
 		this.shoot = false;
 		this.cooldown = 500;
+		this.lifes = 5;
 		
 		this.bullets = new List<Bullet>();
 		
@@ -35,6 +36,18 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 	
 	public List<Bullet> getBullets() {
 		return bullets;
+	}
+	
+	public int getLifes() {
+		return lifes;
+	}
+	
+	public void loseLife() {
+		if(lifes > 1) {
+			--lifes;
+		} else if(lifes == 1) {
+			System.out.println("Game Over!!!");
+		}
 	}
 
 	@ Override

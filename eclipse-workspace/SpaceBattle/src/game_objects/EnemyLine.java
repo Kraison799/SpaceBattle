@@ -1,5 +1,7 @@
 package game_objects;
 
+import java.util.Random;
+
 import adt.List;
 import state_machine.Timer;
 
@@ -19,7 +21,19 @@ public abstract class EnemyLine {
 		int counter = 0;
 		this.enemies = new List<Enemy>();
 		while(counter < this.size) {
-			Enemy enemy = new Enemy(posX, posY, 30, 50, 1, speed, "Invader_1");
+			Random rand = new Random();
+			int imageIndex = rand.nextInt(3);
+			String sprite = "";
+			if (imageIndex == 0) {
+				sprite = "Invader_1";
+			} else if(imageIndex == 1) {
+				sprite = "Invader_2";
+			} else if(imageIndex == 2) {
+				sprite = "Invader_3";
+			} else if(imageIndex == 3) {
+				sprite = "Invader_4";
+			}
+			Enemy enemy = new Enemy(posX, posY, 30, 50, 1, speed, sprite);
 			this.getEnemies().add(enemy);
 			counter++;
 		}

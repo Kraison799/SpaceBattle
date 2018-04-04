@@ -3,12 +3,16 @@ package game_objects;
 import java.awt.Graphics2D;
 import java.util.Random;
 
-public class LineClassD extends EnemyLine implements Drawable {
+public class LineClassE extends EnemyLine implements Drawable {
 	private double angle;
 
-	public LineClassD(int posX, int posY, int speed, int size) {
+	public LineClassE(int posX, int posY, int speed, int size) {
 		super(posX, posY, speed, size);
 		this.setPosY(-70);
+		Random rand = new Random();
+		int newBoss = rand.nextInt(size-1);
+		this.getEnemies().get(newBoss).setBoss();
+		this.setLineClass("LineClassE");
 	}
 
 	@Override
@@ -30,7 +34,6 @@ public class LineClassD extends EnemyLine implements Drawable {
 		for(int c = 0; c < this.getEnemies().size(); c++) {
 			int dist = this.getEnemies().get(c).getPosX() - this.getPosX();
 			int newPosX = (int) (dist * Math.cos(this.angle % 90));
-			System.out.println(newPosX);
 			int newPosY = (int) (dist * Math.sin(this.angle % 90));
 			this.getEnemies().get(c).setPosX(this.getPosX() + newPosX);
 			this.getEnemies().get(c).setPosY(this.getPosY() + newPosY);

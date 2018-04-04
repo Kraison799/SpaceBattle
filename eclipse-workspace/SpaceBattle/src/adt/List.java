@@ -66,4 +66,18 @@ public class List <T> {
 		this.head = null;
 		this.size = 0;
 	}
+	
+	public void swap(int oldIndex, int newIndex) {
+		T d1 = this.get(oldIndex);
+		T d2 = this.get(newIndex);
+		Node<T> current = head;
+		for(int c = 0; c < this.size(); c++) {
+			if(this.get(c) == d1) {
+				current.setValue(d2);
+			} else if(this.get(c) == d2) {
+				current.setValue(d1);
+			}
+			current = current.getNext();
+		}
+	}
 }

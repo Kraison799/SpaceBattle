@@ -10,6 +10,7 @@ public class LineClassC extends EnemyLine implements Drawable {
 		super(posX, posY, speed, size);
 		this.getEnemies().get(size/2).setBoss();
 		this.haveBoss = true;
+		this.setLineClass("LineClassC");
 	}
 	
 	@ Override
