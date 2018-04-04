@@ -48,9 +48,6 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 	@ Override
 	public void update(double delta) {
 		for(int r = 0; r < bullets.size(); r++) {
-			if(bullets.get(r).getPosY() < -30) {
-				// Remove
-			}
 			bullets.get(r).update(delta);
 		}
 		

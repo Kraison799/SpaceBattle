@@ -4,19 +4,21 @@ import java.awt.Canvas;
 import java.awt.Graphics2D;
 
 import game_objects.BasicLine;
+import game_objects.EnemyLine;
 import game_objects.LineClassA;
 import game_objects.LineClassB;
 import game_objects.LineClassC;
+import game_objects.LineClassD;
 import game_objects.Player;
 import state_machine.SuperStateMachine;
 
 public class GameScreen  implements SuperStateMachine {
 	private Player player;
-	private LineClassA enemies;
+	private LineClassD enemies;
 	
 	public GameScreen() {
 		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
-		enemies = new LineClassA(280*3/2, -60, 1, 7);
+		enemies = new LineClassD(280*3/2, -60, 1, 7);
 	}
 
 	@Override

@@ -47,14 +47,13 @@ public class LineClassB extends EnemyLine implements Drawable {
 			if(change) {
 				Random rand = new Random();
 				int newPos = rand.nextInt(this.getEnemies().size()-1);
-				System.out.println(newPos);
 				List<Enemy> newList = new List<Enemy>();
 				for(int c = 0; c < this.getEnemies().size(); c++) {
 					if(!this.getEnemies().get(c).isBoss() && c != newPos) {
 						newList.add(this.getEnemies().get(c));
 					} else if(!this.getEnemies().get(c).isBoss() && c == newPos) {
 						newList.add(this.getEnemies().get(bossIndex));
-						bossIndex = c;
+						bossIndex = newPos;
 						newList.add(this.getEnemies().get(c));
 					} else if(this.getEnemies().get(c).isBoss() && c == newPos) {
 						// The boss has the same position

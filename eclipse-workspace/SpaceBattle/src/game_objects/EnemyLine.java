@@ -19,7 +19,7 @@ public abstract class EnemyLine {
 		int counter = 0;
 		this.enemies = new List<Enemy>();
 		while(counter < this.size) {
-			Enemy enemy = new Enemy(posX, posY, 30, 50, 2, speed, "Invader_1");
+			Enemy enemy = new Enemy(posX, posY, 30, 50, 1, speed, "Invader_1");
 			this.getEnemies().add(enemy);
 			counter++;
 		}
