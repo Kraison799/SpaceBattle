@@ -15,7 +15,7 @@ public abstract class GameObject {
 		this.posY = posY;
 		this.width = width;
 		this.height = height;
-		
+
 		try {
 			URL url = this.getClass().getResource("/images/"+spriteName+".png");
 			sprite = ImageIO.read(url);

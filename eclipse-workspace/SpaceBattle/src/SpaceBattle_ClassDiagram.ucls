@@ -19,16 +19,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="game_objects.Boss" project="SpaceBattle" 
-    file="/SpaceBattle/src/game_objects/Boss.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="171" x="1031" y="1266"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="game_objects.LineClassE" project="SpaceBattle" 
+  <class id="3" language="java" name="game_objects.LineClassE" project="SpaceBattle" 
     file="/SpaceBattle/src/game_objects/LineClassE.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="135" width="141" x="652" y="929"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -37,7 +28,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="display.Display" project="SpaceBattle" 
+  <class id="4" language="java" name="display.Display" project="SpaceBattle" 
     file="/SpaceBattle/src/display/Display.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="333" width="155" x="247" y="111"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -46,7 +37,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="state_machine.Timer" project="SpaceBattle" 
+  <class id="5" language="java" name="state_machine.Timer" project="SpaceBattle" 
     file="/SpaceBattle/src/state_machine/Timer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="189" width="151" x="1242" y="1266"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -55,7 +46,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="game_objects.EnemyLine" project="SpaceBattle" 
+  <class id="6" language="java" name="game_objects.EnemyLine" project="SpaceBattle" 
     file="/SpaceBattle/src/game_objects/EnemyLine.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="387" width="173" x="472" y="502"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -64,7 +55,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="8" language="java" name="state_machine.SuperStateMachine" project="SpaceBattle" 
+  <interface id="7" language="java" name="state_machine.SuperStateMachine" project="SpaceBattle" 
     file="/SpaceBattle/src/state_machine/SuperStateMachine.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="140" x="1475" y="929"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -73,7 +64,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="9" language="java" name="game_objects.LineClassA" project="SpaceBattle" 
+  <class id="8" language="java" name="game_objects.LineClassA" project="SpaceBattle" 
     file="/SpaceBattle/src/game_objects/LineClassA.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="135" width="142" x="290" y="929"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -82,7 +73,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="display.GameScreen" project="SpaceBattle" 
+  <class id="9" language="java" name="display.GameScreen" project="SpaceBattle" 
     file="/SpaceBattle/src/display/GameScreen.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="135" width="140" x="1270" y="502"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -91,7 +82,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="11" language="java" name="game_objects.Drawable" project="SpaceBattle" 
+  <interface id="10" language="java" name="game_objects.Drawable" project="SpaceBattle" 
     file="/SpaceBattle/src/game_objects/Drawable.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="99" width="140" x="574" y="1266"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -100,7 +91,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="12" language="java" name="game_objects.Enemy" project="SpaceBattle" 
+  <class id="11" language="java" name="game_objects.Enemy" project="SpaceBattle" 
     file="/SpaceBattle/src/game_objects/Enemy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="279" width="178" x="1031" y="929"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -109,7 +100,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="game_objects.MoveableObject" project="SpaceBattle" 
+  <class id="12" language="java" name="game_objects.MoveableObject" project="SpaceBattle" 
     file="/SpaceBattle/src/game_objects/MoveableObject.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="207" width="209" x="1021" y="502"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -118,7 +109,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="state_machine.StateMachine" project="SpaceBattle" 
+  <class id="13" language="java" name="state_machine.StateMachine" project="SpaceBattle" 
     file="/SpaceBattle/src/state_machine/StateMachine.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="207" width="185" x="247" y="502"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -127,7 +118,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="game_objects.Player" project="SpaceBattle" 
+  <class id="14" language="java" name="game_objects.Player" project="SpaceBattle" 
     file="/SpaceBattle/src/game_objects/Player.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="297" width="165" x="1270" y="929"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -136,7 +127,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="game_objects.BasicLine" project="SpaceBattle" 
+  <class id="15" language="java" name="game_objects.BasicLine" project="SpaceBattle" 
     file="/SpaceBattle/src/game_objects/BasicLine.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="140" x="472" y="929"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -145,7 +136,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="game_objects.GameObject" project="SpaceBattle" 
+  <class id="16" language="java" name="game_objects.GameObject" project="SpaceBattle" 
     file="/SpaceBattle/src/game_objects/GameObject.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="351" width="177" x="1021" y="111"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -154,7 +145,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="game_objects.Bullet" project="SpaceBattle" 
+  <class id="17" language="java" name="game_objects.Bullet" project="SpaceBattle" 
     file="/SpaceBattle/src/game_objects/Bullet.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="158" x="833" y="929"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -163,109 +154,113 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="19">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="13"/>  
+  <generalization id="18">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="6"/>  
   </generalization>  
-  <generalization id="20">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <generalization id="21">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <association id="22">    
-    <bendpoint x="1239" y="929"/>    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="23" name="timer">        
+  <realization id="19">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <association id="20">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="21" name="timer">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="24" minimum="0" maximum="1">        
+      <multiplicity id="22" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="25">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <generalization id="26">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="17"/>  
-  </generalization>  
-  <realization id="27">    
+  <generalization id="23">    
     <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="11"/>  
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <realization id="26">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <realization id="27">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="10"/>  
   </realization>  
   <realization id="28">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="11"/>  
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="7"/>  
   </realization>  
   <association id="29">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="30" name="enemies">        
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="30" name="player">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="31" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="32">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <association id="33">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="34" name="player">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="35" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="36">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="11"/>  
+  <realization id="32">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="10"/>  
   </realization>  
+  <realization id="33">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <realization id="34">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
   <generalization id="37">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="7"/>  
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="6"/>  
   </generalization>  
-  <realization id="38">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <realization id="39">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <realization id="40">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="8"/>  
-  </realization>  
-  <association id="41">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="42" name="timer">        
+  <association id="38">    
+    <bendpoint x="1239" y="929"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="39" name="timer">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="43" minimum="0" maximum="1">        
+      <multiplicity id="40" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <realization id="41">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <generalization id="42">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <realization id="43">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
   <association id="44">    
-    <end type="SOURCE" refId="5" navigable="false">      
+    <end type="SOURCE" refId="4" navigable="false">      
       <attribute id="45" name="state">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
@@ -273,33 +268,13 @@
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <generalization id="47">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <generalization id="48">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <realization id="49">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <generalization id="50">    
-    <end type="SOURCE" refId="3"/>    
+    <end type="SOURCE" refId="17"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <realization id="51">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <realization id="52">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

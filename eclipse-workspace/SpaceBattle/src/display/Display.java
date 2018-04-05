@@ -1,7 +1,6 @@
 package display;
 
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -56,9 +55,6 @@ public class Display extends Canvas implements Runnable {
 		do {
 			do {
 				Graphics2D g = (Graphics2D) bs.getDrawGraphics();
-				g.setColor(Color.BLACK);
-				g.fillRect(0, 0, this.getWidth(), this.getHeight());
-				
 				g.drawImage(bg, 0, 0, WIDTH*SCALE+10, HEIGHT*SCALE+10, this);
 				
 				state.draw(g);
@@ -116,7 +112,7 @@ public class Display extends Canvas implements Runnable {
 				FPS = frames;
 				frames = 0;
 				
-				// System.out.println(FPS+" FPS");
+				System.out.println(FPS+" FPS");
 			}
 			
 			draw(bs);

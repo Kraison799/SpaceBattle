@@ -5,7 +5,7 @@ import java.util.Random;
 import adt.List;
 import state_machine.Timer;
 
-public abstract class EnemyLine {
+public abstract class EnemyLine implements Drawable {
 	private List<Enemy> enemies;
 	private int posX, posY, speed, size;
 	private Timer timer;
