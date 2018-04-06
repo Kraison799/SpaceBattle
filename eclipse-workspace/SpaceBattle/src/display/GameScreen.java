@@ -19,6 +19,7 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 	private Player player;
 	private Level level;
 	private int levelCounter;
+	private boolean gameOver;
 	
 	private BufferedImage bg;
 	
@@ -27,11 +28,23 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
 		level = new Level(1);
 		levelCounter = 1;
+		gameOver = false;
 		
 		try {
 			URL url = this.getClass().getResource("/images/Background.png");
 			bg = ImageIO.read(url);
 		} catch(IOException e) {e.printStackTrace();}
+	}
+	
+	public void reset() {
+		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
+		level = new Level(1);
+		levelCounter = 1;
+		gameOver = false;
+	}
+	
+	public void gameOver() {
+		
 	}
 
 	@Override
@@ -43,6 +56,9 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 
 	@Override
 	public void update(double delta) {
+		if(gameOver) {
+			this.gameOver();
+		}
 		if(level.getLineCounter() == 4) {
 			++levelCounter;
 			level = new Level(levelCounter);
@@ -118,20 +134,16 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		if(key == KeyEvent.VK_ESCAPE) {
+			this.gameOver = true;
+			this.reset();
 			this.getStateMachine().setState((byte) 0);
 		}
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void keyReleased(KeyEvent e) {}
 
 	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void keyTyped(KeyEvent e) {}
 
 }

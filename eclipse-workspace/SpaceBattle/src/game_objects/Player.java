@@ -46,7 +46,7 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 		if(lifes > 1) {
 			--lifes;
 		} else if(lifes == 1) {
-			//     S y stem.out.println("Game Over!!!");
+			
 		}
 	}
 

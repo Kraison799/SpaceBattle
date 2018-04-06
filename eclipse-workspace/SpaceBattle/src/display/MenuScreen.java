@@ -6,6 +6,11 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
 
 import state_machine.StateMachine;
 import state_machine.SuperStateMachine;
@@ -15,13 +20,21 @@ public class MenuScreen extends SuperStateMachine implements KeyListener {
 	private Font startFont = new Font("Arial", Font.PLAIN, 32);
 	private String title = "Space Battle";
 	private String start = "Press Enter";
+	
+	private BufferedImage bg;
 
 	public MenuScreen(StateMachine stateMachine) {
 		super(stateMachine);
+		
+		try {
+			URL url = this.getClass().getResource("/images/BackgroundMenu.png");
+			bg = ImageIO.read(url);
+		} catch(IOException e) {e.printStackTrace();}
 	}
 
 	@Override
 	public void draw(Graphics2D g) {
+		g.drawImage(bg, 0, 0, 280*3+10, 200*3+10, null);
 		g.setFont(titleFont);
 		int titleWidth = g.getFontMetrics().stringWidth(title);
 		g.setColor(Color.yellow);
