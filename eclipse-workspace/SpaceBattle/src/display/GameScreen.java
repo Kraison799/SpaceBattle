@@ -2,28 +2,41 @@ package display;
 
 import java.awt.Canvas;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
 
 import constructor.Level;
 import game_objects.Player;
+import state_machine.StateMachine;
 import state_machine.SuperStateMachine;
 
-public class GameScreen implements SuperStateMachine {
+public class GameScreen extends SuperStateMachine implements KeyListener {
 	private Player player;
 	private Level level;
 	private int levelCounter;
 	
-	public GameScreen() {
+	private BufferedImage bg;
+	
+	public GameScreen(StateMachine stateMachine) {
+		super(stateMachine);
 		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
 		level = new Level(1);
 		levelCounter = 1;
-	}
-	
-	public void gameOver() {
 		
+		try {
+			URL url = this.getClass().getResource("/images/Background.png");
+			bg = ImageIO.read(url);
+		} catch(IOException e) {e.printStackTrace();}
 	}
 
 	@Override
 	public void draw(Graphics2D g) {
+		g.drawImage(bg, 0, 0, 280*3+10, 200*3+10, null);
 		player.draw(g);
 		level.draw(g);
 	}
@@ -98,6 +111,27 @@ public class GameScreen implements SuperStateMachine {
 	@Override
 	public void init(Canvas canvas) {
 		canvas.addKeyListener(player);
+		canvas.addKeyListener(this);
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		int key = e.getKeyCode();
+		if(key == KeyEvent.VK_ESCAPE) {
+			this.getStateMachine().setState((byte) 0);
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

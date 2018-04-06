@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 
 import adt.List;
 import display.GameScreen;
+import display.MenuScreen;
 
 public class StateMachine {
 	private Canvas canvas;
@@ -14,7 +15,9 @@ public class StateMachine {
 	public StateMachine(Canvas canvas) {
 		this.canvas = canvas;
 		
-		SuperStateMachine game = new GameScreen();
+		SuperStateMachine menu = new MenuScreen(this);
+		SuperStateMachine game = new GameScreen(this);
+		states.add(menu);
 		states.add(game);
 	}
 

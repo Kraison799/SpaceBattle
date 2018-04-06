@@ -94,9 +94,9 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 			right = false;
 		} else if(key == KeyEvent.VK_LEFT) {
 			left = false;
-		} else if (key == KeyEvent.VK_SPACE) {
+		} else if(key == KeyEvent.VK_SPACE) {
 			shoot = false;
-		}
+		} 
 	}
 
 	@Override

@@ -3,11 +3,6 @@ package display;
 import java.awt.Canvas;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
-
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import state_machine.StateMachine;
@@ -21,20 +16,28 @@ public class Display extends Canvas implements Runnable {
 	
 	private int FPS;
 	private static StateMachine state;
-	
-	private BufferedImage bg;
+	private JFrame frame;
 	
 	public Display() {
-		this.setSize(WIDTH*SCALE + 275, HEIGHT*SCALE);
+		this.setSize(WIDTH*SCALE, HEIGHT*SCALE);
 		this.setFocusable(true);
 		
 		state = new StateMachine(this);
 		state.setState((byte) 0);
-		
-		try {
-			URL url = this.getClass().getResource("/images/Background.png");
-			bg = ImageIO.read(url);
-		} catch(IOException e) {e.printStackTrace();}
+	}
+	
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	public void toGame() {
+		this.setSize(WIDTH*SCALE + 275, HEIGHT*SCALE);
+		this.getFrame().pack();
+		state.setState((byte) 1);
 	}
 	
 	public static void main(String args[]) {
@@ -48,6 +51,7 @@ public class Display extends Canvas implements Runnable {
 		frame.setResizable(false);
 		frame.setVisible(true);
 		
+		display.setFrame(frame);
 		display.start();
 	}
 	
@@ -55,7 +59,6 @@ public class Display extends Canvas implements Runnable {
 		do {
 			do {
 				Graphics2D g = (Graphics2D) bs.getDrawGraphics();
-				g.drawImage(bg, 0, 0, WIDTH*SCALE+10, HEIGHT*SCALE+10, this);
 				
 				state.draw(g);
 				
