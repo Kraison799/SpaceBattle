@@ -1,6 +1,7 @@
 package display;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -50,6 +51,8 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 	@Override
 	public void draw(Graphics2D g) {
 		g.drawImage(bg, 0, 0, 280*3+10, 200*3+10, null);
+		g.setColor(Color.darkGray);
+		g.fillRect(280*3+10, 0, 350*3-280*3, 200*3+10);
 		player.draw(g);
 		level.draw(g);
 	}

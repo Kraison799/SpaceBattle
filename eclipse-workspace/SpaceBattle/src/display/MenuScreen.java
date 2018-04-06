@@ -34,18 +34,18 @@ public class MenuScreen extends SuperStateMachine implements KeyListener {
 
 	@Override
 	public void draw(Graphics2D g) {
-		g.drawImage(bg, 0, 0, 280*3+10, 200*3+10, null);
+		g.drawImage(bg, 0, 0, 350*3+10, 200*3+10, null);
 		g.setFont(titleFont);
 		int titleWidth = g.getFontMetrics().stringWidth(title);
 		g.setColor(Color.yellow);
-		g.drawString(title, (280*3/2)-(titleWidth/2)+1, 350+1);
+		g.drawString(title, (350*3/2)-(titleWidth/2)+2, 350+2);
 		g.setColor(Color.blue);
-		g.drawString(title, (280*3/2)-(titleWidth/2), 350);
+		g.drawString(title, (350*3/2)-(titleWidth/2), 350);
 		
 		g.setFont(startFont);
 		int startWidth = g.getFontMetrics().stringWidth(title);
 		g.setColor(Color.white);
-		g.drawString(start, (280*3/2)-(startWidth/2), 500);
+		g.drawString(start, (350*3/2)-(startWidth/2), 500);
 	}
 
 	@Override

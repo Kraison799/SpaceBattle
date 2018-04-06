@@ -9,7 +9,7 @@ import state_machine.StateMachine;
 
 public class Display extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
-	private final int WIDTH = 280, HEIGHT = 200, SCALE = 3;
+	private final int WIDTH = 350, HEIGHT = 200, SCALE = 3;
 	
 	private boolean running = false;
 	private Thread thread;
