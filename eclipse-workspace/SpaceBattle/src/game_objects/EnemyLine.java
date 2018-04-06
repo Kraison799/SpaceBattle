@@ -11,7 +11,7 @@ public abstract class EnemyLine implements Drawable {
 	private Timer timer;
 	private String lineClass;
 	
-	public EnemyLine(int posX, int posY, int speed, int size) {
+	public EnemyLine(int posX, int posY, int speed, int size, int lvl) {
 		this.posX = posX;
 		this.posY = posY;
 		this.speed = speed;
@@ -33,7 +33,7 @@ public abstract class EnemyLine implements Drawable {
 			} else if(imageIndex == 3) {
 				sprite = "Invader_4";
 			}
-			Enemy enemy = new Enemy(posX, posY, 30, 50, 1, speed, sprite);
+			Enemy enemy = new Enemy(posX, posY, 30, 50, lvl, speed, sprite);
 			this.getEnemies().add(enemy);
 			counter++;
 		}

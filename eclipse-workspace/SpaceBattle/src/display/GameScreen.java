@@ -4,22 +4,22 @@ import java.awt.Canvas;
 import java.awt.Graphics2D;
 
 import constructor.Level;
-import game_objects.BasicLine;
-import game_objects.EnemyLine;
-import game_objects.LineClassA;
-import game_objects.LineClassB;
-import game_objects.LineClassC;
-import game_objects.LineClassE;
 import game_objects.Player;
 import state_machine.SuperStateMachine;
 
 public class GameScreen implements SuperStateMachine {
 	private Player player;
 	private Level level;
+	private int levelCounter;
 	
 	public GameScreen() {
 		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
-		level = new Level();
+		level = new Level(1);
+		levelCounter = 1;
+	}
+	
+	public void gameOver() {
+		
 	}
 
 	@Override
@@ -30,6 +30,10 @@ public class GameScreen implements SuperStateMachine {
 
 	@Override
 	public void update(double delta) {
+		if(level.getLineCounter() == 4) {
+			++levelCounter;
+			level = new Level(levelCounter);
+		}
 		// Loop to destroy enemies
 		for(int e = 0; e < level.getCurrent().getEnemies().size(); e++) {
 			int b = 0;

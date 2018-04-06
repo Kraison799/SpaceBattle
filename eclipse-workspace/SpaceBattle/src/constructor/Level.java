@@ -15,12 +15,13 @@ import game_objects.LineClassE;
 public class Level implements Drawable {
 	private EnemyLine current;
 	private EnemyLine next;
-	private int lineCounter;
+	private int lineCounter, lvl;
 	
-	public Level() {
-		current = new BasicLine(280*3/2, -60, 1, 7);
+	public Level(int lvl) {
+		current = new BasicLine(280*3/2, -60, 1, 7, lvl);
 		next = this.createNewLine();
 		lineCounter = 0;
+		this.lvl = lvl;
 	}
 	
 	public EnemyLine createNewLine() {
@@ -28,21 +29,18 @@ public class Level implements Drawable {
 		int index = rand.nextInt(5);
 		int size = 5 + rand.nextInt(3);
 		++lineCounter;
-		if(lineCounter >= 3) {
-			lineCounter = 2;
-		}
 		if(index == 0) {
-			return new BasicLine(280*3/2, -60, lineCounter, size);
+			return new BasicLine(280*3/2, -60, lineCounter, size, this.lvl);
 		} else if(index == 1) {
-			return new LineClassA(280*3/2, -60, lineCounter, size);
+			return new LineClassA(280*3/2, -60, lineCounter, size, this.lvl);
 		} else if(index == 2) {
-			return new LineClassB(280*3/2, -60, lineCounter, size);
+			return new LineClassB(280*3/2, -60, lineCounter, size, this.lvl);
 		} else if(index == 3) {
-			return new LineClassC(280*3/2, -60, lineCounter, size);
+			return new LineClassC(280*3/2, -60, lineCounter, size, this.lvl);
 		} else if(index == 4) {
-			return new LineClassD(280*3/2, -60, lineCounter, size);
+			return new LineClassD(280*3/2, -60, lineCounter, size, this.lvl);
 		} else if(index == 5) {
-			return new LineClassE(280*3/2, -60, lineCounter, size);
+			return new LineClassE(280*3/2, -60, lineCounter, size, this.lvl);
 		}
 		return null;
 	}
@@ -54,6 +52,10 @@ public class Level implements Drawable {
 	public void nextLine() {
 		current = next;
 		next = this.createNewLine();
+	}
+
+	public int getLineCounter() {
+		return lineCounter;
 	}
 
 	@Override

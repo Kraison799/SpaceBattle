@@ -6,8 +6,8 @@ import java.util.Random;
 public class LineClassE extends EnemyLine implements Drawable {
 	private double angle;
 
-	public LineClassE(int posX, int posY, int speed, int size) {
-		super(posX, posY, speed, size);
+	public LineClassE(int posX, int posY, int speed, int size, int lvl) {
+		super(posX, posY, speed, size, lvl);
 		this.setPosY(-70);
 		Random rand = new Random();
 		int newBoss = rand.nextInt(size-1);

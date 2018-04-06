@@ -4,8 +4,8 @@ import java.awt.Graphics2D;
 import java.util.Random;
 
 public class BasicLine extends EnemyLine implements Drawable {
-	public BasicLine(int posX, int posY, int speed, int size) {
-		super(posX, posY, speed, size);
+	public BasicLine(int posX, int posY, int speed, int size, int lvl) {
+		super(posX, posY, speed, size, lvl);
 	}
 	
 	@ Override

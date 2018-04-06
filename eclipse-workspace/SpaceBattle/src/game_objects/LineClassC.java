@@ -6,8 +6,8 @@ import java.util.Random;
 public class LineClassC extends EnemyLine implements Drawable {
 	private boolean haveBoss;
 
-	public LineClassC(int posX, int posY, int speed, int size) {
-		super(posX, posY, speed, size);
+	public LineClassC(int posX, int posY, int speed, int size, int lvl) {
+		super(posX, posY, speed, size, lvl);
 		this.getEnemies().get(size/2).setBoss();
 		this.haveBoss = true;
 		this.setLineClass("LineClassC");
@@ -31,9 +31,11 @@ public class LineClassC extends EnemyLine implements Drawable {
 			}
 		}
 		Random rand = new Random();
-		if(!this.haveBoss) {
+		if(!this.haveBoss && this.getEnemies().size() != 1) {
 			int newBoss = rand.nextInt(this.getEnemies().size()-1);
 			this.getEnemies().get(newBoss).setBoss();
+		} else if(!this.haveBoss && this.getEnemies().size() == 1) {
+			this.getEnemies().get(0).setBoss();
 		}
 		this.arrangeLine();
 		if(this.getTimer().timerEvent(1000)) {

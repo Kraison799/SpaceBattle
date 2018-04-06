@@ -4,69 +4,19 @@ import java.awt.Canvas;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
 
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-
-import state_machine.StateMachine;
-
-public class Display extends Canvas implements Runnable {
+public class InfoScreen extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
-	private final int WIDTH = 280, HEIGHT = 200, SCALE = 3;
+	private final int WIDTH = 200, HEIGHT = 600;
 	
 	private boolean running = false;
 	private Thread thread;
 	
-	private int FPS;
-	private static StateMachine state;
-	
 	private BufferedImage bg;
 	
-	public Display() {
-		this.setSize(WIDTH*SCALE + 275, HEIGHT*SCALE);
+	public InfoScreen() {
+		this.setSize(WIDTH, HEIGHT);
 		this.setFocusable(true);
-		
-		state = new StateMachine(this);
-		state.setState((byte) 0);
-		
-		try {
-			URL url = this.getClass().getResource("/images/Background.png");
-			bg = ImageIO.read(url);
-		} catch(IOException e) {e.printStackTrace();}
-	}
-	
-	public static void main(String args[]) {
-		Display display = new Display();
-		JFrame frame = new JFrame();
-		frame.add(display);
-		frame.pack();
-		
-		frame.setTitle("Space Battle");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
-		frame.setVisible(true);
-		
-		display.start();
-	}
-	
-	public void draw(BufferStrategy bs) {
-		do {
-			do {
-				Graphics2D g = (Graphics2D) bs.getDrawGraphics();
-				g.drawImage(bg, 0, 0, WIDTH*SCALE+10, HEIGHT*SCALE+10, this);
-				
-				state.draw(g);
-				
-				g.dispose();
-			} while(bs.contentsRestored());
-			bs.show();
-		} while(bs.contentsLost());
-	}
-	
-	public void update(double delta) {
-		state.update(delta);
 	}
 	
 	public synchronized void start() {
@@ -88,6 +38,22 @@ public class Display extends Canvas implements Runnable {
 		} catch(InterruptedException e) {e.printStackTrace();}
 	}
 	
+	public void draw(BufferStrategy bs) {
+		do {
+			do {
+				Graphics2D g = (Graphics2D) bs.getDrawGraphics();
+				g.drawImage(bg, 0, 0, WIDTH+10, HEIGHT+10, this);
+				
+				g.dispose();
+			} while(bs.contentsRestored());
+			bs.show();
+		} while(bs.contentsLost());
+	}
+	
+	public void update(double delta) {
+		
+	}
+
 	@Override
 	public void run() {
 		long timer = System.currentTimeMillis();
@@ -109,10 +75,7 @@ public class Display extends Canvas implements Runnable {
 			
 			if(System.currentTimeMillis()-timer > 1000) {
 				timer += 1000;
-				FPS = frames;
 				frames = 0;
-				
-				System.out.println(FPS+" FPS");
 			}
 			
 			draw(bs);

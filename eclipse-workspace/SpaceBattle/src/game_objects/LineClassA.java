@@ -6,13 +6,17 @@ import java.util.Random;
 public class LineClassA extends EnemyLine implements Drawable {
 	private boolean haveBoss;
 	
-	public LineClassA(int posX, int posY, int speed, int size) {
-		super(posX, posY, speed, size);
+	public LineClassA(int posX, int posY, int speed, int size, int lvl) {
+		super(posX, posY, speed, size, lvl);
 		this.getEnemies().get(size/2).setBoss();
 		this.haveBoss = true;
 		this.setLineClass("LineClassA");
 	}
 	
+	public boolean isHaveBoss() {
+		return haveBoss;
+	}
+
 	@ Override
 	public void draw(Graphics2D g) {
 		for(int c = 0; c < this.getEnemies().size(); c++) {

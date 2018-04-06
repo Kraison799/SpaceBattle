@@ -8,8 +8,8 @@ import adt.List;
 public class LineClassD extends EnemyLine implements Drawable {
 	private boolean haveBoss;
 
-	public LineClassD(int posX, int posY, int speed, int size) {
-		super(posX, posY, speed, size);
+	public LineClassD(int posX, int posY, int speed, int size, int lvl) {
+		super(posX, posY, speed, size, lvl);
 		this.getEnemies().get(size/2).setBoss();
 		this.haveBoss = true;
 		this.setLineClass("LineClassD");
