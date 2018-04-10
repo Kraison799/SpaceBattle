@@ -20,8 +20,7 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 	private Player player;
 	private Level level;
 	private int levelCounter;
-	private boolean gameOver;
-	
+	private int score;
 	private BufferedImage bg;
 	
 	public GameScreen(StateMachine stateMachine) {
@@ -29,7 +28,7 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
 		level = new Level(1);
 		levelCounter = 1;
-		gameOver = false;
+		score = 0;
 		
 		try {
 			URL url = this.getClass().getResource("/images/Background.png");
@@ -41,15 +40,29 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
 		level = new Level(1);
 		levelCounter = 1;
-		gameOver = false;
 	}
 	
-	public void gameOver() {
+	public void gameOver(Graphics2D g) {
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, 350*3+10, 200*3+10);
+		BufferedImage go = null;
+		try {
+			URL url = this.getClass().getResource("/images/GameOver.png");
+			go = ImageIO.read(url);
+		} catch(IOException e) {e.printStackTrace();}
+		g.drawImage(go, (350*3+10)/2-go.getWidth(), 100, go.getWidth()*2, go.getHeight()*2, null);
+	}
+	
+	public void showInfo() {
 		
 	}
 
 	@Override
 	public void draw(Graphics2D g) {
+		if(!this.player.isAlive()) {
+			this.gameOver(g);
+			return;
+		}
 		g.drawImage(bg, 0, 0, 280*3+10, 200*3+10, null);
 		g.setColor(Color.darkGray);
 		g.fillRect(280*3+10, 0, 350*3-280*3, 200*3+10);
@@ -59,8 +72,8 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 
 	@Override
 	public void update(double delta) {
-		if(gameOver) {
-			this.gameOver();
+		if(!player.isAlive()) {
+			return;
 		}
 		if(level.getLineCounter() == 4) {
 			++levelCounter;
@@ -73,6 +86,11 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 				if(player.getBullets().get(b).isColliding(level.getCurrent().getEnemies().get(e))) {
 					player.getBullets().remove(b);
 					if(level.getCurrent().getEnemies().get(e).destroy()) {
+						if(level.getCurrent().getEnemies().get(e).isBoss()) {
+							this.score += 500;
+						} else {
+							this.score += 100;
+						}
 						level.getCurrent().getEnemies().remove(e);
 						if(level.getCurrent().getEnemies().size() == 0) {
 							level.nextLine();
@@ -114,6 +132,11 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		// Loop to get collisions between enemies and the player
 		for(int e = 0; e < level.getCurrent().getEnemies().size(); e++) {
 			if(level.getCurrent().getEnemies().get(e).isColliding(player)) {
+				if(level.getCurrent().getEnemies().get(e).isBoss()) {
+					this.score += 500;
+				} else {
+					this.score += 100;
+				}
 				level.getCurrent().getEnemies().remove(e);
 				if(level.getCurrent().getEnemies().size() == 0) {
 					level.nextLine();
@@ -137,7 +160,6 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		if(key == KeyEvent.VK_ESCAPE) {
-			this.gameOver = true;
 			this.reset();
 			this.getStateMachine().setState((byte) 0);
 		}

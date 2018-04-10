@@ -30,7 +30,7 @@ public class Enemy extends MoveableObject implements Drawable {
 	
 	public boolean destroy() {
 		--resistance;
-		return (resistance == 0);
+		return (resistance <= 0);
 	}
 	
 	public void setBoss() {

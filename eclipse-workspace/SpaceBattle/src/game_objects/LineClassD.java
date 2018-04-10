@@ -36,6 +36,7 @@ public class LineClassD extends EnemyLine implements Drawable {
 
 	@Override
 	public void update(double delta) {
+		System.out.println(this.getEnemies().size());
 		this.haveBoss = false;
 		for(int c = 0; c < this.getEnemies().size(); c++) {
 			this.getEnemies().get(c).setPosY(this.getEnemies().get(c).getPosY()+this.getSpeed());
@@ -49,7 +50,9 @@ public class LineClassD extends EnemyLine implements Drawable {
 			int newBoss = rand.nextInt(this.getEnemies().size()-1);
 			this.getEnemies().get(newBoss).setBoss();
 		}
-		this.orderLine();
+		if(this.getEnemies().size() > 1) {
+			this.orderLine();
+		}
 		this.arrangeLine();
 		if(this.getTimer().timerEvent(1000)) {
 			if(this.getEnemies().size() > 1) {

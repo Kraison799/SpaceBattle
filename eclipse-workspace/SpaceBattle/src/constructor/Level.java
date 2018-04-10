@@ -26,8 +26,9 @@ public class Level implements Drawable {
 	
 	public EnemyLine createNewLine() {
 		Random rand = new Random();
-		int index = rand.nextInt(5);
-		int size = 5 + rand.nextInt(3);
+		int index = rand.nextInt(6);
+		System.out.println(index);
+		int size = 6;
 		++lineCounter;
 		if(index == 0) {
 			return new BasicLine(280*3/2, -60, lineCounter, size, this.lvl);

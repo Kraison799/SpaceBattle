@@ -43,7 +43,7 @@ public class LineClassB extends EnemyLine implements Drawable {
 				int shooter_1 = rand.nextInt(this.getEnemies().size()-1);
 				this.getEnemies().get(shooter_1).shoot();
 			}
-			if(change) {
+			if(change && this.getEnemies().size() > 1) {
 				Random rand = new Random();
 				int newPos = rand.nextInt(this.getEnemies().size()-1);
 				this.getEnemies().swap(bossIndex, newPos);

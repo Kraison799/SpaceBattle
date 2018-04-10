@@ -8,7 +8,7 @@ import adt.List;
 import state_machine.Timer;
 
 public class Player extends MoveableObject implements KeyListener, Drawable {
-	private boolean right, left, shoot;
+	private boolean right, left, shoot, alive;
 	private int cooldown, lifes;
 	private Timer timer;
 	
@@ -19,6 +19,7 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 		this.right = false;
 		this.left = false;
 		this.shoot = false;
+		this.alive = true;
 		this.cooldown = 500;
 		this.lifes = 5;
 		
@@ -43,11 +44,15 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 	}
 	
 	public void loseLife() {
-		if(lifes > 1) {
+		if(lifes >= 1) {
 			--lifes;
-		} else if(lifes == 1) {
-			
+		} else if(lifes == 0) {
+			this.alive = false;
 		}
+	}
+
+	public boolean isAlive() {
+		return alive;
 	}
 
 	@ Override
