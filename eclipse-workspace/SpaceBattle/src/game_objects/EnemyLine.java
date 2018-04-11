@@ -10,17 +10,18 @@ public abstract class EnemyLine implements Drawable {
 	private int posX, posY, speed, size;
 	private Timer timer;
 	private String lineClass;
+	private boolean haveBoss;
 	
 	public EnemyLine(int posX, int posY, int speed, int size, int lvl) {
 		this.posX = posX;
 		this.posY = posY;
 		this.speed = speed;
-		this.size = size;
 		this.lineClass = "EnemyLine";
+		this.haveBoss = false;
 		
 		int counter = 0;
 		this.enemies = new List<Enemy>();
-		while(counter < this.size) {
+		while(counter < size) {
 			Random rand = new Random();
 			int imageIndex = rand.nextInt(3);
 			String sprite = "";
@@ -79,6 +80,14 @@ public abstract class EnemyLine implements Drawable {
 
 	public void setLineClass(String lineClass) {
 		this.lineClass = lineClass;
+	}
+
+	public boolean isHaveBoss() {
+		return haveBoss;
+	}
+
+	public void setHaveBoss(boolean haveBoss) {
+		this.haveBoss = haveBoss;
 	}
 
 	public void arrangeLine() {

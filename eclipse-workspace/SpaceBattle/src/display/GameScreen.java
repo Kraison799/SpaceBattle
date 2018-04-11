@@ -2,6 +2,7 @@ package display;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -22,6 +23,7 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 	private int levelCounter;
 	private int score;
 	private BufferedImage bg;
+	private Font GMFont = new Font("Arial", Font.PLAIN, 28);
 	
 	public GameScreen(StateMachine stateMachine) {
 		super(stateMachine);
@@ -40,10 +42,11 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
 		level = new Level(1);
 		levelCounter = 1;
+		score = 0;
 	}
 	
 	public void gameOver(Graphics2D g) {
-		g.setColor(Color.BLACK);
+		g.setColor(Color.black);
 		g.fillRect(0, 0, 350*3+10, 200*3+10);
 		BufferedImage go = null;
 		try {
@@ -53,8 +56,23 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		g.drawImage(go, (350*3+10)/2-go.getWidth(), 100, go.getWidth()*2, go.getHeight()*2, null);
 	}
 	
-	public void showInfo() {
+	public void showInfo(Graphics2D g) {
+		g.setFont(GMFont);
+		g.setColor(Color.white);
+		g.drawString("Level: " + Integer.toString(levelCounter), 280*3+20, 25);
+		g.drawString("Current Line:", 280*3+20, 100);
+		g.drawString(level.getCurrent().getLineClass(), 280*3+30, 130);
+		g.drawString("Next Line: ", 280*3+20, 200);
+		g.drawString(level.getNext().getLineClass(), 280*3+30, 230);
 		
+		BufferedImage hearth = null;
+		try {
+			URL url = this.getClass().getResource("/images/Health.png");
+			hearth = ImageIO.read(url);
+		} catch(IOException e) {e.printStackTrace();}
+		for(int h = 0; h < player.getLifes(); h++) {
+			g.drawImage(hearth, 280*3+30+25*h, 570, 20, 20, null);
+		}
 	}
 
 	@Override
@@ -64,8 +82,9 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 			return;
 		}
 		g.drawImage(bg, 0, 0, 280*3+10, 200*3+10, null);
-		g.setColor(Color.darkGray);
+		g.setColor(Color.gray);
 		g.fillRect(280*3+10, 0, 350*3-280*3, 200*3+10);
+		this.showInfo(g);
 		player.draw(g);
 		level.draw(g);
 	}
@@ -82,6 +101,12 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		// Loop to destroy enemies
 		for(int e = 0; e < level.getCurrent().getEnemies().size(); e++) {
 			int b = 0;
+			if(level.getCurrent().getEnemies().get(e).getPosY() >= 600 - level.getCurrent().getEnemies().get(e).getHeight()) {
+				while(player.isAlive()) {
+					player.loseLife();
+				}
+				return;
+			}
 			while(b < player.getBullets().size()) {
 				if(player.getBullets().get(b).isColliding(level.getCurrent().getEnemies().get(e))) {
 					player.getBullets().remove(b);
@@ -162,6 +187,8 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		if(key == KeyEvent.VK_ESCAPE) {
 			this.reset();
 			this.getStateMachine().setState((byte) 0);
+		} else if(key == KeyEvent.VK_P) {
+			this.getStateMachine().setState((byte) 2);
 		}
 	}
 

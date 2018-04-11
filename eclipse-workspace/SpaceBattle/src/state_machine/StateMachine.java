@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import adt.List;
 import display.GameScreen;
 import display.MenuScreen;
+import display.PauseScreen;
 
 public class StateMachine {
 	private Canvas canvas;
@@ -17,8 +18,10 @@ public class StateMachine {
 		
 		SuperStateMachine menu = new MenuScreen(this);
 		SuperStateMachine game = new GameScreen(this);
+		SuperStateMachine pause = new PauseScreen(this);
 		states.add(menu);
 		states.add(game);
+		states.add(pause);
 	}
 
 	public void draw(Graphics2D g) {

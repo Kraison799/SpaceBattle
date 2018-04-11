@@ -12,6 +12,7 @@ public class LineClassE extends EnemyLine implements Drawable {
 		Random rand = new Random();
 		int newBoss = rand.nextInt(size-1);
 		this.getEnemies().get(newBoss).setBoss();
+		this.setHaveBoss(true);
 		this.setLineClass("LineClassE");
 	}
 
@@ -24,9 +25,13 @@ public class LineClassE extends EnemyLine implements Drawable {
 
 	@Override
 	public void update(double delta) {
+		this.setHaveBoss(false);
 		for(int c = 0; c < this.getEnemies().size(); c++) {
 			this.getEnemies().get(c).setPosY(this.getEnemies().get(c).getPosY()+this.getSpeed());
 			this.getEnemies().get(c).update(delta);
+			if(this.getEnemies().get(c).isBoss()) {
+				this.setHaveBoss(true);
+			}
 		}
 		this.arrangeLine();
 		this.angle += 0.01;

@@ -35,12 +35,13 @@ public class MenuScreen extends SuperStateMachine implements KeyListener {
 	@Override
 	public void draw(Graphics2D g) {
 		g.drawImage(bg, 0, 0, 350*3+10, 200*3+10, null);
+		
 		g.setFont(titleFont);
 		int titleWidth = g.getFontMetrics().stringWidth(title);
-		g.setColor(Color.yellow);
-		g.drawString(title, (350*3/2)-(titleWidth/2)+2, 350+2);
-		g.setColor(Color.blue);
-		g.drawString(title, (350*3/2)-(titleWidth/2), 350);
+		g.setColor(Color.black);
+		g.drawString(title, (350*3/2)-(titleWidth/2)+2, 300+2);
+		g.setColor(Color.white);
+		g.drawString(title, (350*3/2)-(titleWidth/2), 300);
 		
 		g.setFont(startFont);
 		int startWidth = g.getFontMetrics().stringWidth(title);
@@ -49,8 +50,7 @@ public class MenuScreen extends SuperStateMachine implements KeyListener {
 	}
 
 	@Override
-	public void update(double delta) {
-	}
+	public void update(double delta) {}
 
 	@Override
 	public void init(Canvas canvas) {
@@ -66,12 +66,8 @@ public class MenuScreen extends SuperStateMachine implements KeyListener {
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {
-		
-	}
+	public void keyReleased(KeyEvent e) {}
 
 	@Override
-	public void keyTyped(KeyEvent e) {
-		
-	}
+	public void keyTyped(KeyEvent e) {}
 }

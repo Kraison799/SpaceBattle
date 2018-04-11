@@ -59,6 +59,10 @@ public class Level implements Drawable {
 		return lineCounter;
 	}
 
+	public EnemyLine getNext() {
+		return next;
+	}
+
 	@Override
 	public void draw(Graphics2D g) {
 		this.current.draw(g);

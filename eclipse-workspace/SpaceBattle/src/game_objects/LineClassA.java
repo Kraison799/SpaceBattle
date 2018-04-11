@@ -9,12 +9,8 @@ public class LineClassA extends EnemyLine implements Drawable {
 	public LineClassA(int posX, int posY, int speed, int size, int lvl) {
 		super(posX, posY, speed, size, lvl);
 		this.getEnemies().get(size/2).setBoss();
-		this.haveBoss = true;
+		this.setHaveBoss(true);
 		this.setLineClass("LineClassA");
-	}
-	
-	public boolean isHaveBoss() {
-		return haveBoss;
 	}
 
 	@ Override
@@ -26,12 +22,12 @@ public class LineClassA extends EnemyLine implements Drawable {
 	
 	@ Override
 	public void update(double delta) {
-		haveBoss = false;
+		this.setHaveBoss(false);;
 		for(int c = 0; c < this.getEnemies().size(); c++) {
 			this.getEnemies().get(c).setPosY(this.getEnemies().get(c).getPosY()+this.getSpeed());
 			this.getEnemies().get(c).update(delta);
 			if(this.getEnemies().get(c).isBoss()) {
-				this.haveBoss = true;
+				this.setHaveBoss(true);
 			}
 		}
 		this.arrangeLine();
