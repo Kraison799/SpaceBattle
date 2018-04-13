@@ -14,6 +14,7 @@ import javax.imageio.ImageIO;
 
 import constructor.Level;
 import game_objects.Player;
+import server.ControllerServer;
 import state_machine.StateMachine;
 import state_machine.SuperStateMachine;
 
@@ -25,6 +26,9 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 	private BufferedImage bg;
 	private Font GMFont = new Font("Arial", Font.PLAIN, 28);
 	
+	private ControllerServer server;
+	private boolean serverOn;
+	
 	public GameScreen(StateMachine stateMachine) {
 		super(stateMachine);
 		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
@@ -32,10 +36,18 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		levelCounter = 1;
 		score = 0;
 		
+		this.setServer();
+		
 		try {
 			URL url = this.getClass().getResource("/images/Background.png");
 			bg = ImageIO.read(url);
 		} catch(IOException e) {e.printStackTrace();}
+	}
+	
+	public void setServer() {
+		this.server = new ControllerServer(this);
+		this.serverOn = true;
+		server.start();
 	}
 	
 	public void reset() {
@@ -86,6 +98,22 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		for(int h = 0; h < player.getLifes(); h++) {
 			g.drawImage(hearth, 280*3+30+25*h, 570, 20, 20, null);
 		}
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public Level getLevel() {
+		return level;
+	}
+
+	public int getLevelCounter() {
+		return levelCounter;
+	}
+
+	public int getScore() {
+		return score;
 	}
 
 	@Override

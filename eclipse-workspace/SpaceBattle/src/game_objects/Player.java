@@ -21,7 +21,7 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 		this.left = false;
 		this.shoot = false;
 		this.alive = true;
-		this.cooldown = 500;
+		this.cooldown = 50;
 		this.lifes = 5;
 		
 		this.bullets = new LinkedList<Bullet>();
