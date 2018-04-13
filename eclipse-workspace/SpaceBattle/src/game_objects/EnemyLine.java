@@ -2,12 +2,13 @@ package game_objects;
 
 import java.util.Random;
 
+import adt.LinkedList;
 import adt.List;
 import state_machine.Timer;
 
 public abstract class EnemyLine implements Drawable {
 	private List<Enemy> enemies;
-	private int posX, posY, speed, size;
+	private int posX, posY, speed;
 	private Timer timer;
 	private String lineClass;
 	private boolean haveBoss;
@@ -20,7 +21,7 @@ public abstract class EnemyLine implements Drawable {
 		this.haveBoss = false;
 		
 		int counter = 0;
-		this.enemies = new List<Enemy>();
+		this.enemies = new LinkedList<Enemy>();
 		while(counter < size) {
 			Random rand = new Random();
 			int imageIndex = rand.nextInt(3);

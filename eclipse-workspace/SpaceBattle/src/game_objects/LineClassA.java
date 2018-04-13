@@ -4,8 +4,6 @@ import java.awt.Graphics2D;
 import java.util.Random;
 
 public class LineClassA extends EnemyLine implements Drawable {
-	private boolean haveBoss;
-	
 	public LineClassA(int posX, int posY, int speed, int size, int lvl) {
 		super(posX, posY, speed, size, lvl);
 		this.getEnemies().get(size/2).setBoss();

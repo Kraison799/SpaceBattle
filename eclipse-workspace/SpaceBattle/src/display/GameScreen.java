@@ -56,6 +56,17 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		g.drawImage(go, (350*3+10)/2-go.getWidth(), 100, go.getWidth()*2, go.getHeight()*2, null);
 	}
 	
+	public void winner(Graphics2D g) {
+		g.setColor(Color.black);
+		g.fillRect(0, 0, 350*3+10, 200*3+10);
+		BufferedImage w = null;
+		try {
+			URL url = this.getClass().getResource("/images/SpaceInvadersLogo.png");
+			w = ImageIO.read(url);
+		} catch(IOException e) {e.printStackTrace();}
+		g.drawImage(w, (350*3+10)/2-w.getWidth()/2, 100, w.getWidth(), w.getHeight(), null);
+	}
+	
 	public void showInfo(Graphics2D g) {
 		g.setFont(GMFont);
 		g.setColor(Color.white);
@@ -64,6 +75,8 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		g.drawString(level.getCurrent().getLineClass(), 280*3+30, 130);
 		g.drawString("Next Line: ", 280*3+20, 200);
 		g.drawString(level.getNext().getLineClass(), 280*3+30, 230);
+		g.drawString("Score:", 280*3+20, 470);
+		g.drawString(Integer.toString(score), 280*3+30, 500);
 		
 		BufferedImage hearth = null;
 		try {
@@ -80,6 +93,9 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		if(!this.player.isAlive()) {
 			this.gameOver(g);
 			return;
+		} else if(levelCounter > 3) {
+			this.winner(g);
+			return;
 		}
 		g.drawImage(bg, 0, 0, 280*3+10, 200*3+10, null);
 		g.setColor(Color.gray);
@@ -92,6 +108,8 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 	@Override
 	public void update(double delta) {
 		if(!player.isAlive()) {
+			return;
+		} else if(levelCounter > 3) {
 			return;
 		}
 		if(level.getLineCounter() == 4) {

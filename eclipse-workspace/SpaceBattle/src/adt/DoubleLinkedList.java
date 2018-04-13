@@ -1,16 +1,16 @@
 package adt;
 
-public class DoubleLinkedList<T> {
+public class DoubleLinkedList<T> extends List<T> {
 	private Node<T> head;
 	private Node<T> last;
 	private int size;
 	
 	public DoubleLinkedList() {
-		head = null;
+		super();
 		last = null;
-		size = 0;
 	}
 	
+	@Override
 	public void add(T value) {
 		Node<T> newNode = new Node<T>();
 		newNode.setValue(value);
@@ -25,6 +25,7 @@ public class DoubleLinkedList<T> {
 		}
 	}
 	
+	@Override
 	public void remove(int index) {
 		if(index == 0 && index < size) {
 			head = head.getNext();
@@ -48,6 +49,7 @@ public class DoubleLinkedList<T> {
 		}
 	}
 	
+	@Override
 	public T get(int index) {
 		if(index > size-1)
 			return null;
@@ -60,10 +62,7 @@ public class DoubleLinkedList<T> {
 		return current.getValue();
 	}
 	
-	public int size() {
-		return size;
-	}
-	
+	@Override
 	public void clear() {
 		this.head = null;
 		this.last = null;

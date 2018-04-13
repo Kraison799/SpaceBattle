@@ -70,6 +70,10 @@ public class Level implements Drawable {
 
 	@Override
 	public void update(double delta) {
+		if((current.getLineClass() == "LineClassA" || current.getLineClass() == "LineClassE") && !current.isHaveBoss()) {
+			this.nextLine();
+			return;
+		}
 		for(int c = 0; c < this.current.getEnemies().size(); c++) {
 			if(current.getEnemies().get(c).getPosY() > 600) {
 				this.nextLine();

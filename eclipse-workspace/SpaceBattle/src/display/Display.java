@@ -3,6 +3,7 @@ package display;
 import java.awt.Canvas;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
+
 import javax.swing.JFrame;
 
 import state_machine.StateMachine;

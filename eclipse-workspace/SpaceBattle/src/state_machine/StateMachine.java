@@ -3,14 +3,14 @@ package state_machine;
 import java.awt.Canvas;
 import java.awt.Graphics2D;
 
-import adt.List;
+import adt.LinkedList;
 import display.GameScreen;
 import display.MenuScreen;
 import display.PauseScreen;
 
 public class StateMachine {
 	private Canvas canvas;
-	private List<SuperStateMachine> states = new List<SuperStateMachine>();
+	private LinkedList<SuperStateMachine> states = new LinkedList<SuperStateMachine>();
 	private byte selectState;
 	
 	public StateMachine(Canvas canvas) {

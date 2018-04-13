@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import adt.LinkedList;
 import adt.List;
 import state_machine.Timer;
 
@@ -12,7 +13,7 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 	private int cooldown, lifes;
 	private Timer timer;
 	
-	private List<Bullet> bullets = new List<Bullet>();
+	private List<Bullet> bullets = new LinkedList<Bullet>();
 
 	public Player(int posX, int posY, int width, int height, String spriteName) {
 		super(posX, posY, width, height, 5, spriteName);
@@ -23,7 +24,7 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 		this.cooldown = 500;
 		this.lifes = 5;
 		
-		this.bullets = new List<Bullet>();
+		this.bullets = new LinkedList<Bullet>();
 		
 		this.timer = new Timer();
 	}

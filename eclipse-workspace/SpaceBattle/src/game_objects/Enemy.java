@@ -2,10 +2,10 @@ package game_objects;
 
 import java.awt.Graphics2D;
 
-import adt.List;
+import adt.LinkedList;
 
 public class Enemy extends MoveableObject implements Drawable {
-	private List<Bullet> bullets;
+	private LinkedList<Bullet> bullets;
 	private int resistance;
 	private boolean boss;
 	private String bulletSprite;
@@ -13,7 +13,7 @@ public class Enemy extends MoveableObject implements Drawable {
 	public Enemy(int posX, int posY, int width, int height, int resistance, int speed, String spriteName) {
 		super(posX, posY, width, height, speed, spriteName);
 		this.resistance = resistance;
-		this.bullets = new List<Bullet>();
+		this.bullets = new LinkedList<Bullet>();
 		this.bulletSprite = "Laser";
 		this.boss = false;
 	}
@@ -42,7 +42,7 @@ public class Enemy extends MoveableObject implements Drawable {
 		this.setHeight(75);
 	}
 
-	public List<Bullet> getBullets() {
+	public LinkedList<Bullet> getBullets() {
 		return bullets;
 	}
 

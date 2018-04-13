@@ -1,6 +1,6 @@
 package adt;
 
-public class List <T> {
+public abstract class List <T> {
 	private Node<T> head;
 	private int size;
 	

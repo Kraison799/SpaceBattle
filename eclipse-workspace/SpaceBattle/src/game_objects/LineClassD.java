@@ -3,6 +3,7 @@ package game_objects;
 import java.awt.Graphics2D;
 import java.util.Random;
 
+import adt.LinkedList;
 import adt.List;
 
 public class LineClassD extends EnemyLine implements Drawable {
@@ -13,7 +14,7 @@ public class LineClassD extends EnemyLine implements Drawable {
 	}
 	
 	public void orderLine() {
-		List<Enemy> newList = new List<Enemy>();
+		List<Enemy> newList = new LinkedList<Enemy>();
 		for(int r = 1; r < 7; r++) {
 			for(int c = 0; c < this.getEnemies().size(); c++) {
 				if(this.getEnemies().get(c).getResistance() == r) {
