@@ -1,7 +1,7 @@
 package adt;
 
-public class CircleList<T> {
-	private DoubleNode<T> head;
+public class CircleList<T> implements List<T> {
+	private Node<T> head;
 	private int size;
 	
 	public CircleList() {
@@ -9,33 +9,62 @@ public class CircleList<T> {
 		size = 0;
 	}
 	
+	@Override
 	public void add(T value) {
-		DoubleNode<T> newNode = new DoubleNode<T>();
+		Node<T> newNode = new Node<T>();
 		newNode.setValue(value);
 		if(head == null) {
 			head = newNode;
-			size++;
+			head.setNext(head);
+			++size;
 		} else {
-		newNode.setPrev(head.getPrev());
-		newNode.setNext(head);
-		head.getPrev().setNext(newNode);
-		head.setPrev(newNode);
-		size++;
+			Node<T> current = head;
+			while(current.getNext() != head) {
+				current = current.getNext();
+			}
+			current.setNext(newNode);
+			newNode.setNext(head);
+			++size;
 		}
 	}
+
+	@Override
+	public void remove(int index) {
+		if(index == 0 && index < size) {
+			head = head.getNext();
+			--size;
+		} else {
+			Node<T> current = head;
+			int counter = 0;
+			while(counter < index-1) {
+				current = current.getNext();
+				counter++;
+			}
+			current.setNext(current.getNext().getNext());
+			--size;
+		}
+	}
+
+	@Override
+	public T get(int index) {
+		Node<T> current = head;
+		for(int i = 0; i < index; i++) {
+			current = current.getNext();
+		}
+		return current.getValue();
+	}
+
+	@Override
+	public int size() {
+		return size;
+	}
 	
-//	public void remove(int index) {
-//		if(index == 0 && index < size) {
-//			head.getNext().setPrev(head.getPrev());
-//			head.getPrev().setNext(head.getNext());
-//			head = head.getNext();
-//			size--;
-//		} else if(index <= size/2) {
-//			DoubleNode<T> current = head;
-//			for(int c = 0; c != index; c++) {
-//				current = current.getNext();
-//			}
-//			
-//		}
-//	}
+	@Override
+	public void clear() {
+		this.head = null;
+		this.size = 0;
+	}
+	
+	@Override
+	public void swap(int index1, int index2) {}
 }

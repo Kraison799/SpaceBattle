@@ -14,10 +14,11 @@ public class ControllerServer extends Thread {
 	private ServerSocket ss;
 	private Socket s;
 	private int port = 9000;
-	private String ip = "192.168.43.28";
+	private String ip = "192.168.100.32";
 	private PrintStream output;
 	private BufferedReader input;
 	private String dataIn = "";
+	private String dataOut = "";
 	private static ControllerServer server;
 	private GameScreen game;
 	
@@ -32,25 +33,14 @@ public class ControllerServer extends Thread {
 		return server;
 	}
 	
-	public void shareInfo() {
-		try {
-			s = new Socket(ip, port);
-			
-			input = new BufferedReader(new InputStreamReader(s.getInputStream()));
-			String dataIn = input.readLine();
-			System.out.println(dataIn);
-			
-			output = new PrintStream(s.getOutputStream());
-			
-			s.close();
-		} catch(Exception e) {}
-	}
-	
 	public void init() throws IOException {
 		try {
 			System.out.println("Searching connection...");
 			ss = new ServerSocket(port);
 			s = new Socket();
+			
+			dataOut = String.valueOf(game.getScore()+"/"+game.getLevel().getCurrent().getLineClass()+"/"+game.getLevel().getNext().getLineClass());
+			System.out.println(dataOut);
 			
 			while(true) {
 				s = ss.accept();
@@ -59,12 +49,15 @@ public class ControllerServer extends Thread {
 				output = new PrintStream(s.getOutputStream());
 				
 				dataIn = input.readLine();
+				System.out.println(dataIn);
 				System.out.println("Data received...");
-				String dataOut = (String.valueOf(game.getScore()+"/"+game.getLevel().getCurrent().getLineClass()+"/"+game.getLevel().getNext().getLineClass()));
+				dataOut = (String.valueOf(game.getScore()+"/"+game.getLevel().getCurrent().getLineClass()+"/"+game.getLevel().getNext().getLineClass()));
 				output.println(dataOut);
 				System.out.println("Data sent...");
 			}
-		} catch(IOException e) {}
+		} catch(IOException e) {
+			System.out.println("Connection failed...");
+		}
 		finally {
 			input.close();
 			output.close();

@@ -5,7 +5,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import adt.LinkedList;
-import adt.List;
 import state_machine.Timer;
 
 public class Player extends MoveableObject implements KeyListener, Drawable {
@@ -13,7 +12,7 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 	private int cooldown, lifes;
 	private Timer timer;
 	
-	private List<Bullet> bullets = new LinkedList<Bullet>();
+	private LinkedList<Bullet> bullets = new LinkedList<Bullet>();
 
 	public Player(int posX, int posY, int width, int height, String spriteName) {
 		super(posX, posY, width, height, 5, spriteName);
@@ -21,7 +20,7 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 		this.left = false;
 		this.shoot = false;
 		this.alive = true;
-		this.cooldown = 50;
+		this.cooldown = 500;
 		this.lifes = 5;
 		
 		this.bullets = new LinkedList<Bullet>();
@@ -36,7 +35,7 @@ public class Player extends MoveableObject implements KeyListener, Drawable {
 		}
 	}
 	
-	public List<Bullet> getBullets() {
+	public LinkedList<Bullet> getBullets() {
 		return bullets;
 	}
 	

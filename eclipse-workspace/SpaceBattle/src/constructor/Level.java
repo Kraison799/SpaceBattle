@@ -27,7 +27,6 @@ public class Level implements Drawable {
 	public EnemyLine createNewLine() {
 		Random rand = new Random();
 		int index = rand.nextInt(6);
-		System.out.println(index);
 		int size = 6;
 		++lineCounter;
 		if(index == 0) {
@@ -42,8 +41,9 @@ public class Level implements Drawable {
 			return new LineClassD(280*3/2, -60, lineCounter, size, this.lvl);
 		} else if(index == 5) {
 			return new LineClassE(280*3/2, -60, lineCounter, size, this.lvl);
+		} else {
+			return new BasicLine(280*3/2, -60, lineCounter, size, this.lvl);
 		}
-		return null;
 	}
 
 	public EnemyLine getCurrent() {
@@ -70,7 +70,10 @@ public class Level implements Drawable {
 
 	@Override
 	public void update(double delta) {
-		if((current.getLineClass() == "LineClassA" || current.getLineClass() == "LineClassE") && !current.isHaveBoss()) {
+		if((current.getLineClass() == "LineClassA" || current.getLineClass() == "LineClassB" || current.getLineClass() == "LineClassE") && !current.isHaveBoss()) {
+			this.nextLine();
+			return;
+		} else if(current.getEnemies().size() == 0) {
 			this.nextLine();
 			return;
 		}

@@ -27,7 +27,6 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 	private Font GMFont = new Font("Arial", Font.PLAIN, 28);
 	
 	private ControllerServer server;
-	private boolean serverOn;
 	
 	public GameScreen(StateMachine stateMachine) {
 		super(stateMachine);
@@ -46,13 +45,12 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 	
 	public void setServer() {
 		this.server = new ControllerServer(this);
-		this.serverOn = true;
 		server.start();
 	}
 	
 	public void reset() {
-		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
 		level = new Level(1);
+		player = new Player(280*3/2-25, 360/16*9*3-55, 50, 50, "Spaceship_1");
 		levelCounter = 1;
 		score = 0;
 	}
@@ -66,6 +64,11 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 			go = ImageIO.read(url);
 		} catch(IOException e) {e.printStackTrace();}
 		g.drawImage(go, (350*3+10)/2-go.getWidth(), 100, go.getWidth()*2, go.getHeight()*2, null);
+		
+		g.setFont(GMFont);
+		g.setColor(Color.white);
+		g.drawString("Score", (350*3+10)/2-g.getFontMetrics().stringWidth("Score")/2, 450);
+		g.drawString(Integer.toString(score), (350*3+10)/2-g.getFontMetrics().stringWidth(Integer.toString(score))/2, 500);
 	}
 	
 	public void winner(Graphics2D g) {
@@ -90,13 +93,13 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		g.drawString("Score:", 280*3+20, 470);
 		g.drawString(Integer.toString(score), 280*3+30, 500);
 		
-		BufferedImage hearth = null;
+		BufferedImage heart = null;
 		try {
 			URL url = this.getClass().getResource("/images/Health.png");
-			hearth = ImageIO.read(url);
+			heart = ImageIO.read(url);
 		} catch(IOException e) {e.printStackTrace();}
 		for(int h = 0; h < player.getLifes(); h++) {
-			g.drawImage(hearth, 280*3+30+25*h, 570, 20, 20, null);
+			g.drawImage(heart, 280*3+30+25*h, 570, 20, 20, null);
 		}
 	}
 
@@ -122,8 +125,8 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 			this.gameOver(g);
 			return;
 		} else if(levelCounter > 3) {
-			this.winner(g);
-			return;
+//			this.winner(g);
+//			return;
 		}
 		g.drawImage(bg, 0, 0, 280*3+10, 200*3+10, null);
 		g.setColor(Color.gray);
@@ -138,7 +141,7 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 		if(!player.isAlive()) {
 			return;
 		} else if(levelCounter > 3) {
-			return;
+//			return;
 		}
 		if(level.getLineCounter() == 4) {
 			++levelCounter;
@@ -165,7 +168,7 @@ public class GameScreen extends SuperStateMachine implements KeyListener {
 						level.getCurrent().getEnemies().remove(e);
 						if(level.getCurrent().getEnemies().size() == 0) {
 							level.nextLine();
-							level.getCurrent().update(delta);
+							level.update(delta);
 						}
 						--e;
 					}

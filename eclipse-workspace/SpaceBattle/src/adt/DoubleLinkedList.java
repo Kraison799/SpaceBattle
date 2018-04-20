@@ -1,28 +1,30 @@
 package adt;
 
-public class DoubleLinkedList<T> extends List<T> {
-	private Node<T> head;
-	private Node<T> last;
+public class DoubleLinkedList<T> implements List<T> {
+	private DoubleNode<T> head;
 	private int size;
 	
 	public DoubleLinkedList() {
-		super();
-		last = null;
+		head = null;
+		size = 0;
 	}
 	
 	@Override
 	public void add(T value) {
-		Node<T> newNode = new Node<T>();
+		DoubleNode<T> newNode = new DoubleNode<T>();
 		newNode.setValue(value);
-		if(head == null && last == null) {
+		if(head == null) {
 			head = newNode;
-			last = newNode;
-			++size;
-		} else {
-		last.setNext(newNode);
-		last = newNode;
-		size++;
+			size++;
+			return;
 		}
+		DoubleNode<T> current = head;
+		while(current.getNext() != null) {
+			current = current.getNext();
+		}
+		newNode.setPrev(current);
+		current.setNext(newNode);
+		size++;
 	}
 	
 	@Override
@@ -32,7 +34,7 @@ public class DoubleLinkedList<T> extends List<T> {
 			size--;
 			return;
 		}
-		Node<T> current = head;
+		DoubleNode<T> current = head;
 		int counter = 0;
 		while(counter < index-1 && current.getNext() != null) {
 			current = current.getNext();
@@ -53,10 +55,8 @@ public class DoubleLinkedList<T> extends List<T> {
 	public T get(int index) {
 		if(index > size-1)
 			return null;
-		if(index == size-1)
-			return last.getValue();
-		Node<T> current = head;
-		for(int i = 0; i < index; i++) {
+		DoubleNode<T> current = head;
+		for(int c = 0; c < index; c++) {
 			current = current.getNext();
 		}
 		return current.getValue();
@@ -65,7 +65,26 @@ public class DoubleLinkedList<T> extends List<T> {
 	@Override
 	public void clear() {
 		this.head = null;
-		this.last = null;
 		this.size = 0;
+	}
+
+	@Override
+	public int size() {
+		return size;
+	}
+
+	@Override
+	public void swap(int index1, int index2) {
+		T d1 = this.get(index1);
+		T d2 = this.get(index2);
+		DoubleNode<T> current = head;
+		for(int c = 0; c < size; c++) {
+			if(this.get(c) == d1) {
+				current.setValue(d2);
+			} else if(this.get(c) == d2) {
+				current.setValue(d1);
+			}
+			current = current.getNext();
+		}
 	}
 }
