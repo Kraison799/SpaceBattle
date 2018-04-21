@@ -12,13 +12,18 @@ import game_objects.LineClassC;
 import game_objects.LineClassD;
 import game_objects.LineClassE;
 
+/**
+ * This class creates the current enemy line and the next enemy line and it also operate them.
+ * @author Victor Castrillo
+ *
+ */
 public class Level implements Drawable {
 	private EnemyLine current;
 	private EnemyLine next;
 	private int lineCounter, lvl;
 	
 	public Level(int lvl) {
-		current = new BasicLine(280*3/2, -60, 1, 7, lvl);
+		current = new LineClassE(280*3/2, -60, 1, 7, lvl);
 		next = this.createNewLine();
 		lineCounter = 0;
 		this.lvl = lvl;

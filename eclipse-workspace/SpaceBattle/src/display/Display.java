@@ -8,6 +8,11 @@ import javax.swing.JFrame;
 
 import state_machine.StateMachine;
 
+/**
+ * This is the class that creates the window and draw the screen according to the current state.
+ * @author Victor Castrillo
+ *
+ */
 public class Display extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 	private final int WIDTH = 350, HEIGHT = 200, SCALE = 3;

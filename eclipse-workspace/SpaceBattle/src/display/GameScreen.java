@@ -18,6 +18,11 @@ import server.ControllerServer;
 import state_machine.StateMachine;
 import state_machine.SuperStateMachine;
 
+/**
+ * This class run the game and draw the screen for it.
+ * @author Victor Castrillo
+ *
+ */
 public class GameScreen extends SuperStateMachine implements KeyListener {
 	private Player player;
 	private Level level;

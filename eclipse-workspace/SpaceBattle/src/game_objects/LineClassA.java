@@ -5,6 +5,11 @@ import java.util.Random;
 
 import adt.LinkedList;
 
+/**
+ * This enemy line has a boss and the entire line is destroyed if this enemy get destroyed.
+ * @author Victor Castrillo
+ *
+ */
 public class LineClassA extends EnemyLine implements Drawable {
 	public LineClassA(int posX, int posY, int speed, int size, int lvl) {
 		super(posX, posY, speed, size, lvl);

@@ -5,6 +5,11 @@ import java.util.Random;
 
 import adt.CircleList;
 
+/**
+ * In this enemy line, when the boss die, another enemy takes its place as boss.
+ * @author Victor Castrillo
+ *
+ */
 public class LineClassC extends EnemyLine implements Drawable {
 	public LineClassC(int posX, int posY, int speed, int size, int lvl) {
 		super(posX, posY, speed, size, lvl);

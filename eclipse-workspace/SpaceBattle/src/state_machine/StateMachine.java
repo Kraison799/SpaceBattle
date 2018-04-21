@@ -8,6 +8,11 @@ import display.GameScreen;
 import display.MenuScreen;
 import display.PauseScreen;
 
+/**
+ * This class determinate the state to be displayed into the screen.
+ * @author Victor Castrillo
+ *
+ */
 public class StateMachine {
 	private Canvas canvas;
 	private LinkedList<SuperStateMachine> states = new LinkedList<SuperStateMachine>();

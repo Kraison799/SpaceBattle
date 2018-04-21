@@ -5,6 +5,11 @@ import java.util.Random;
 
 import adt.DoubleLinkedList;
 
+/**
+ * This enemy line is similar to the class A, but the boss in this line will randomly change its position. 
+ * @author Victor Castrillo
+ *
+ */
 public class LineClassB extends EnemyLine implements Drawable {
 	private boolean change;
 	private int bossIndex;

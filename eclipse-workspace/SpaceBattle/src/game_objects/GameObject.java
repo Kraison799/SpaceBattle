@@ -6,6 +6,11 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
+/**
+ * This class gives the basic structure to all the objects that will be displayed in the screen.
+ * @author Victor Castrillo
+ *
+ */
 public abstract class GameObject {
 	private int posX, posY, width, height;
 	private BufferedImage sprite;

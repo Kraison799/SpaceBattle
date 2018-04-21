@@ -5,6 +5,11 @@ import java.util.Random;
 
 import adt.CircleList;
 
+/**
+ * This enemy line order its enemies according to their resistance on a descending order.
+ * @author Victor Castrillo
+ *
+ */
 public class LineClassD extends EnemyLine implements Drawable {
 	public LineClassD(int posX, int posY, int speed, int size, int lvl) {
 		super(posX, posY, speed, size, lvl);

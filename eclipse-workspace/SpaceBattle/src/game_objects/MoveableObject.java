@@ -2,6 +2,11 @@ package game_objects;
 
 import java.awt.Rectangle;
 
+/**
+ * This class its the basic structure for every movable object in the game.
+ * @author Victor Castrillo
+ *
+ */
 public abstract class MoveableObject extends GameObject {
 	private int speed;
 	private boolean collide;

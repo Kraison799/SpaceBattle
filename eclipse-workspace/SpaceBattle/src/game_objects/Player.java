@@ -7,6 +7,11 @@ import java.awt.event.KeyListener;
 import adt.LinkedList;
 import state_machine.Timer;
 
+/**
+ * This is the object that will be controlled by the user.
+ * @author Victor Castrillo
+ *
+ */
 public class Player extends MoveableObject implements KeyListener, Drawable {
 	private boolean right, left, shoot, alive;
 	private int cooldown, lifes;

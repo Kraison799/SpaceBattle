@@ -15,6 +15,11 @@ import javax.imageio.ImageIO;
 import state_machine.StateMachine;
 import state_machine.SuperStateMachine;
 
+/**
+ * This class run the menu and draw the screen for it.
+ * @author Victor Castrillo
+ *
+ */
 public class MenuScreen extends SuperStateMachine implements KeyListener {
 	private Font titleFont = new Font("Arial", Font.PLAIN, 64);
 	private Font startFont = new Font("Arial", Font.PLAIN, 32);

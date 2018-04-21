@@ -3,6 +3,11 @@ package state_machine;
 import java.awt.Canvas;
 import java.awt.Graphics2D;
 
+/**
+ * This is the basic structure for the states that creates a screen to be draw.
+ * @author Victor Castrillo
+ *
+ */
 public abstract class SuperStateMachine {
 	private StateMachine stateMachine;
 	

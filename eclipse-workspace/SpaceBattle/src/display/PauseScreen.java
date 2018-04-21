@@ -10,6 +10,11 @@ import java.awt.event.KeyListener;
 import state_machine.StateMachine;
 import state_machine.SuperStateMachine;
 
+/**
+ * This class creates a pause menu that stop the game until the user decide to play it.
+ * @author Victor Castrillo
+ *
+ */
 public class PauseScreen extends SuperStateMachine implements KeyListener {
 	private Font titleFont = new Font("Arial", Font.PLAIN, 64);
 	private Font enterFont = new Font("Arial", Font.PLAIN, 32);

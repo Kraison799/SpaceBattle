@@ -1,5 +1,11 @@
 package adt;
 
+/**
+ * 
+ * @author Victor Castrillo
+ *
+ * @param <T> Type of elements to be save in the list.
+ */
 public interface List<T> {
 	public void add(T value);
 	public void remove(int index);

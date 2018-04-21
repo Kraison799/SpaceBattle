@@ -3,6 +3,11 @@ package game_objects;
 import adt.List;
 import state_machine.Timer;
 
+/**
+ * This class gives the basic structure to all the enemy lines.
+ * @author Victor Castrillo
+ *
+ */
 public abstract class EnemyLine implements Drawable {
 	private List<Enemy> enemies;
 	private int posX, posY, speed;

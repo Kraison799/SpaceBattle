@@ -5,6 +5,11 @@ import java.util.Random;
 
 import adt.DoubleLinkedList;
 
+/**
+ * This enemy line move its elements as a clock.
+ * @author Victor Castrillo
+ *
+ */
 public class LineClassE extends EnemyLine implements Drawable {
 	private double angle;
 

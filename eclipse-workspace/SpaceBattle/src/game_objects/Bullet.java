@@ -2,6 +2,11 @@ package game_objects;
 
 import java.awt.Graphics2D;
 
+/**
+ * This class creates "bullets" that will be shoot by the enemies or the player.
+ * @author Victor Castrillo
+ *
+ */
 public class Bullet extends MoveableObject implements Drawable {
 	public Bullet(int posX, int posY, int width, int height, int speed, String spriteName) {
 		super(posX, posY, width, height, speed, spriteName);

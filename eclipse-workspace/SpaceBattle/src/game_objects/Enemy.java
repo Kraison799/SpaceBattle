@@ -4,6 +4,11 @@ import java.awt.Graphics2D;
 
 import adt.LinkedList;
 
+/**
+ * This class creates an enemy to be added in the enemy line.
+ * @author Victor Castrillo
+ *
+ */
 public class Enemy extends MoveableObject implements Drawable {
 	private LinkedList<Bullet> bullets;
 	private int resistance;

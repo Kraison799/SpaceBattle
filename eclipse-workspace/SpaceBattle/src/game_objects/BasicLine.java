@@ -5,6 +5,11 @@ import java.util.Random;
 
 import adt.LinkedList;
 
+/**
+ * This enemy line has only simple enemies.
+ * @author Victor Castrillo
+ *
+ */
 public class BasicLine extends EnemyLine implements Drawable {
 	public BasicLine(int posX, int posY, int speed, int size, int lvl) {
 		super(posX, posY, speed, size, lvl);

@@ -1,5 +1,10 @@
 package state_machine;
 
+/**
+ * This class is used to run an event according to the time given.
+ * @author Victor Castrillo
+ *
+ */
 public class Timer {
 	private long prevTime;
 	

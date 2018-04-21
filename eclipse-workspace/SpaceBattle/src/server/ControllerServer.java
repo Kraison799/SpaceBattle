@@ -1,7 +1,6 @@
 package server;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
@@ -10,11 +9,15 @@ import java.net.Socket;
 
 import display.GameScreen;
 
+/**
+ * This class creates a server and establish a connection between the game program and a cellphone app.
+ * @author Victor Castrillo
+ *
+ */
 public class ControllerServer extends Thread {
 	private ServerSocket ss;
 	private Socket s;
 	private int port = 9000;
-	private String ip = "192.168.100.32";
 	private PrintStream output;
 	private BufferedReader input;
 	private String dataIn = "";
